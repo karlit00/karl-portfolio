@@ -1,25 +1,48 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Navbar() {
   const [expanded, setExpanded] = useState(false);
+  const navRef = useRef(null);
 
   const links = [
     { name: "Home", href: "#hero" },
     { name: "About", href: "#about" },
-    { name: "Stack", href: "#techstack" },
+    { name: "Stack", href: "#stack" },
     { name: "Projects", href: "#projects" },
     { name: "Contact", href: "#contact" },
   ];
 
+  // Tap outside closes the menu on touch devices, where there's no
+  // mouseleave to fall back on.
+  useEffect(() => {
+    if (!expanded) return;
+    const handleOutsideTap = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setExpanded(false);
+      }
+    };
+    document.addEventListener("touchstart", handleOutsideTap);
+    return () => document.removeEventListener("touchstart", handleOutsideTap);
+  }, [expanded]);
+
+  const handleToggle = () => {
+    // Only the collapsed dot needs a tap-to-open; once expanded, links
+    // handle their own navigation and closing.
+    if (!expanded) setExpanded(true);
+  };
+
   return (
-    <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+    <div className="fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 z-50 px-4 w-full sm:w-auto flex justify-center">
       <nav
+        ref={navRef}
         onMouseEnter={() => setExpanded(true)}
         onMouseLeave={() => setExpanded(false)}
+        onClick={handleToggle}
         className="
           group
           relative
-          h-14
+          h-12
+          sm:h-14
           bg-white/90
           backdrop-blur-xl
           border
@@ -33,9 +56,10 @@ export default function Navbar() {
           ease-in-out
           hover:shadow-xl
           hover:border-blue-200
+          max-w-full
         "
         style={{
-          width: expanded ? "720px" : "56px",
+          width: expanded ? "min(720px, 92vw)" : "52px",
           boxShadow: expanded
             ? "0 10px 30px rgba(37,99,235,0.12)"
             : "0 4px 16px rgba(37,99,235,0.10)",
@@ -57,7 +81,7 @@ export default function Navbar() {
           }}
         >
           <div className="relative w-7 h-7 flex items-center justify-center">
-            {/* Slow orbiting ring — gives the rest state its own bit of life */}
+            {/* Slow orbiting ring */}
             <div
               className="absolute inset-0 rounded-full border border-blue-300"
               style={{
@@ -66,12 +90,12 @@ export default function Navbar() {
                 opacity: 0.6,
               }}
             />
-            {/* Soft breathing pulse, gentler than default animate-ping */}
+            {/* Soft breathing pulse */}
             <div
               className="absolute inset-0 rounded-full bg-blue-400"
               style={{ animation: "navbar-breathe 2.4s ease-in-out infinite" }}
             />
-            {/* Core dot, scales up slightly on hover */}
+            {/* Core dot */}
             <div
               className="
                 relative
@@ -94,8 +118,12 @@ export default function Navbar() {
             flex
             items-center
             justify-center
-            gap-2
-            px-6
+            gap-1
+            sm:gap-2
+            px-4
+            sm:px-6
+            flex-nowrap
+            overflow-x-auto
           "
           style={{
             opacity: expanded ? 1 : 0,
@@ -107,13 +135,17 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
+              onClick={() => setExpanded(false)}
               className="
-                px-5
+                px-3
+                sm:px-5
                 py-2
                 rounded-full
-                text-sm
+                text-xs
+                sm:text-sm
                 font-medium
                 text-slate-600
+                whitespace-nowrap
                 hover:text-blue-600
                 hover:bg-blue-50
                 transition-all
