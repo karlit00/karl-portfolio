@@ -7,9 +7,30 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden"
       style={{ background: "#fafafa" }}
     >
-      {/* Loads the display font used for the name in the headline */}
+      {/* Loads the display font + defines the entrance animation keyframes */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap');
+
+        @keyframes heroFadeUp {
+          0% { opacity: 0; transform: translateY(18px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes heroFadeIn {
+          0% { opacity: 0; }
+          100% { opacity: 1; }
+        }
+        @keyframes heroPhotoIn {
+          0% { opacity: 0; transform: translateY(14px) scale(0.96); }
+          100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes heroBracket {
+          0% { opacity: 0; transform: scale(0.4); }
+          100% { opacity: 1; transform: scale(1); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          #hero * { animation: none !important; }
+        }
       `}</style>
 
       {/* Faint dot-grid texture — tech signal, kept extremely subtle */}
@@ -34,7 +55,7 @@ export default function Hero() {
         {/* Left content */}
         <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", width: "100%", minWidth: 0 }}>
 
-          {/* Label — quiet, no syntax-highlight colors, just sets context */}
+          {/* Label */}
           <p
             className="font-mono uppercase"
             style={{
@@ -42,12 +63,13 @@ export default function Hero() {
               letterSpacing: "0.08em",
               color: "#a1a1aa",
               marginBottom: "18px",
+              animation: "heroFadeIn 0.6s ease-out 0.05s both",
             }}
           >
             Fullstack developer · available for work
           </p>
 
-          {/* Heading — one clear color statement: name in full black, role in gray, single blue word as the one accent hit */}
+          {/* Heading */}
           <h1
             className="font-bold"
             style={{
@@ -64,17 +86,22 @@ export default function Hero() {
               lineHeight: 1.05,
               display: "inline-block",
               wordBreak: "break-word",
+              animation: "heroFadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.15s both",
             }}>
               KARL GABUTERO
             </span>
             <br />
-            <span style={{ color: "#71717a" }}>
+            <span style={{
+              color: "#71717a",
+              display: "inline-block",
+              animation: "heroFadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s both",
+            }}>
               builds <span style={{ color: "#4f7cff" }}>your vision</span> for web
               and mobile apps.
             </span>
           </h1>
 
-          {/* Subtext — clearly secondary: smaller, lighter, tighter max-width */}
+          {/* Subtext */}
           <p
             style={{
               fontSize: "15px",
@@ -83,13 +110,14 @@ export default function Hero() {
               maxWidth: "400px",
               width: "100%",
               marginBottom: "32px",
+              animation: "heroFadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.42s both",
             }}
           >
             From API design to pixel-perfect interfaces — I focus on clean
             architecture and code that holds up once it ships.
           </p>
 
-          {/* CTAs — primary visually heavier, secondary recedes */}
+          {/* CTAs */}
           <div className="flex flex-wrap" style={{ gap: "12px", marginBottom: "32px" }}>
             <a
               href="#projects"
@@ -102,11 +130,12 @@ export default function Hero() {
                 borderRadius: "8px",
                 textDecoration: "none",
                 whiteSpace: "nowrap",
+                animation: "heroFadeUp 0.6s cubic-bezier(0.16,1,0.3,1) 0.54s both",
               }}
             >
               View projects
             </a>
-            
+
             <a
               href="#contact"
               className="inline-flex items-center font-medium transition-all hover:border-[#4f7cff] hover:text-[#4f7cff] active:translate-y-0"
@@ -119,13 +148,14 @@ export default function Hero() {
                 border: "1px solid #e4e4e7",
                 textDecoration: "none",
                 whiteSpace: "nowrap",
+                animation: "heroFadeUp 0.6s cubic-bezier(0.16,1,0.3,1) 0.62s both",
               }}
             >
               Contact me
             </a>
           </div>
 
-          {/* Stack — demoted to a single quiet line, reference info rather than a featured row of chips */}
+          {/* Stack line */}
           <p
             className="font-mono"
             style={{
@@ -135,15 +165,22 @@ export default function Hero() {
               maxWidth: "440px",
               width: "100%",
               lineHeight: 1.6,
+              animation: "heroFadeIn 0.6s ease-out 0.72s both",
             }}
           >
             React · React Native · Node.js · Tailwind · MongoDB · Express
           </p>
 
-          {/* Stats — grouped tighter together with a clear top divider, single blue accent kept consistent with the photo's bracket color */}
+          {/* Stats */}
           <div
             className="flex w-full"
-            style={{ borderTop: "1px solid #e4e4e7", paddingTop: "24px", flexWrap: "wrap", rowGap: "12px" }}
+            style={{
+              borderTop: "1px solid #e4e4e7",
+              paddingTop: "24px",
+              flexWrap: "wrap",
+              rowGap: "12px",
+              animation: "heroFadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.8s both",
+            }}
           >
             {[
               { num: "2+", label: "years experience", accent: true },
@@ -176,11 +213,14 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right — photo, sharp-edged with corner bracket motif instead of circle+dashed rings */}
+        {/* Right — photo */}
         <div className="relative flex items-center justify-center" style={{ width: "100%" }}>
           <div
             className="relative"
-            style={{ width: "clamp(170px, 70vw, 300px)" }}
+            style={{
+              width: "clamp(170px, 70vw, 300px)",
+              animation: "heroPhotoIn 0.8s cubic-bezier(0.16,1,0.3,1) 0.25s both",
+            }}
           >
             <img
               src={heropic}
@@ -193,7 +233,7 @@ export default function Hero() {
               }}
             />
 
-            {/* Corner brackets — code-editor selection motif, the signature detail */}
+            {/* Corner brackets — pop in one by one after the photo settles */}
             {[
               { top: "-9px", left: "-9px", borderWidth: "2px 0 0 2px" },
               { top: "-9px", right: "-9px", borderWidth: "2px 2px 0 0" },
@@ -208,12 +248,13 @@ export default function Hero() {
                   height: "20px",
                   borderColor: "#4f7cff",
                   borderStyle: "solid",
+                  animation: `heroBracket 0.5s cubic-bezier(0.34,1.56,0.64,1) ${0.6 + i * 0.06}s both`,
                   ...pos,
                 }}
               />
             ))}
 
-            {/* Status tag — terminal style, anchored bottom-left */}
+            {/* Status tag */}
             <div
               className="absolute font-mono"
               style={{
@@ -227,6 +268,7 @@ export default function Hero() {
                 display: "flex",
                 alignItems: "center",
                 gap: "6px",
+                animation: "heroFadeUp 0.5s ease-out 0.9s both",
               }}
             >
               <span

@@ -1,17 +1,20 @@
 import { useState, useEffect, useRef } from "react";
+import useActiveSection from "../hooks/useActiveSection";
 
 export default function Navbar() {
   const [expanded, setExpanded] = useState(false);
   const navRef = useRef(null);
 
   const links = [
-    { name: "Home", href: "#hero" },
-    { name: "About", href: "#about" },
-    { name: "Stack", href: "#techstack" },
-    { name: "Projects", href: "#projects" },
-    { name: "Services", href: "#services" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "#hero", id: "hero" },
+    { name: "About", href: "#about", id: "about" },
+    { name: "Stack", href: "#techstack", id: "techstack" },
+    { name: "Projects", href: "#projects", id: "projects" },
+    { name: "Services", href: "#services", id: "services" },
+    { name: "Contact", href: "#contact", id: "contact" },
   ];
+
+  const activeSection = useActiveSection(links.map((l) => l.id));
 
   useEffect(() => {
     if (!expanded) return;
@@ -86,30 +89,35 @@ export default function Navbar() {
             gap: "4px",
           }}
         >
-          {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setExpanded(false)}
-              className="whitespace-nowrap transition-colors"
-              style={{
-                fontSize: "13px",
-                color: "#71717a",
-                padding: "8px 18px",
-                borderRadius: "6px",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = "#4f7cff";
-                e.currentTarget.style.background = "#f4f4f5";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = "#71717a";
-                e.currentTarget.style.background = "transparent";
-              }}
-            >
-              {link.name}
-            </a>
-          ))}
+          {links.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setExpanded(false)}
+                className="whitespace-nowrap transition-colors"
+                style={{
+                  fontSize: "13px",
+                  fontWeight: isActive ? 600 : 400,
+                  color: isActive ? "#4f7cff" : "#71717a",
+                  background: isActive ? "#f4f4f5" : "transparent",
+                  padding: "8px 18px",
+                  borderRadius: "6px",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = "#4f7cff";
+                  e.currentTarget.style.background = "#f4f4f5";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = isActive ? "#4f7cff" : "#71717a";
+                  e.currentTarget.style.background = isActive ? "#f4f4f5" : "transparent";
+                }}
+              >
+                {link.name}
+              </a>
+            );
+          })}
         </div>
       </nav>
     </div>
