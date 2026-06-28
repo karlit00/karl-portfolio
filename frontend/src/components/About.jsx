@@ -38,7 +38,7 @@ export default function About() {
     <section
       id="about"
       className="relative overflow-hidden"
-      style={{ background: "#fafafa", padding: "112px 48px" }}
+      style={{ background: "#fafafa", padding: "clamp(64px, 12vw, 112px) clamp(20px, 5vw, 48px)" }}
     >
       {/* Loads the display font used for the heading accent — same as Hero */}
       <style>{`
@@ -74,7 +74,7 @@ export default function About() {
         <h2
           className="font-bold"
           style={{
-            fontSize: "clamp(30px, 4vw, 48px)",
+            fontSize: "clamp(28px, 4vw, 48px)",
             letterSpacing: "-0.03em",
             lineHeight: 1.15,
             color: "#0a0a0b",
@@ -94,7 +94,8 @@ export default function About() {
             lineHeight: 1.75,
             color: "#71717a",
             maxWidth: "620px",
-            marginBottom: "72px",
+            width: "100%",
+            marginBottom: "clamp(48px, 8vw, 72px)",
           }}
         >
           A self-motivated and detail-oriented developer with strong leadership, creativity,
@@ -104,7 +105,7 @@ export default function About() {
         </p>
 
         {/* Experience — bordered gray cards, blue used once per card for the role */}
-        <div style={{ marginBottom: "80px" }}>
+        <div style={{ marginBottom: "clamp(56px, 9vw, 80px)" }}>
           <p
             className="font-mono uppercase"
             style={{ fontSize: "11px", letterSpacing: "0.08em", color: "#a1a1aa", marginBottom: "28px" }}
@@ -120,8 +121,9 @@ export default function About() {
                   background: "#ffffff",
                   border: "1px solid #e4e4e7",
                   borderRadius: "10px",
-                  padding: "28px",
+                  padding: "clamp(20px, 4vw, 28px)",
                   gap: "20px",
+                  minWidth: 0,
                 }}
               >
                 <div>
@@ -151,10 +153,10 @@ export default function About() {
         {/* Expertise + Education — same quiet chip treatment as Hero's stack line, demoted to gray */}
         <div
           className="grid grid-cols-1 md:grid-cols-2"
-          style={{ gap: "64px" }}
+          style={{ gap: "clamp(40px, 8vw, 64px)" }}
         >
           {/* Expertise */}
-          <div>
+          <div style={{ minWidth: 0 }}>
             <p
               className="font-mono uppercase"
               style={{ fontSize: "11px", letterSpacing: "0.08em", color: "#a1a1aa", marginBottom: "20px" }}
@@ -182,7 +184,7 @@ export default function About() {
           </div>
 
           {/* Education — clean bordered card with the corner-bracket signature, no gradient */}
-          <div>
+          <div style={{ minWidth: 0 }}>
             <p
               className="font-mono uppercase"
               style={{ fontSize: "11px", letterSpacing: "0.08em", color: "#a1a1aa", marginBottom: "20px" }}
@@ -195,7 +197,7 @@ export default function About() {
                 background: "#ffffff",
                 border: "1px solid #e4e4e7",
                 borderRadius: "10px",
-                padding: "24px",
+                padding: "clamp(18px, 4vw, 24px)",
               }}
             >
               {[

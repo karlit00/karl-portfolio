@@ -27,12 +27,12 @@ export default function Hero() {
         style={{
           maxWidth: "1280px",
           margin: "0 auto",
-          padding: "80px 48px",
-          gap: "56px",
+          padding: "clamp(40px, 8vw, 80px) clamp(20px, 5vw, 48px)",
+          gap: "clamp(32px, 6vw, 56px)",
         }}
       >
         {/* Left content */}
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", width: "100%", minWidth: 0 }}>
 
           {/* Label — quiet, no syntax-highlight colors, just sets context */}
           <p
@@ -51,19 +51,22 @@ export default function Hero() {
           <h1
             className="font-bold"
             style={{
-              fontSize: "clamp(34px, 5vw, 56px)",
-              lineHeight: 1.1,
+              fontSize: "clamp(28px, 5vw, 56px)",
+              lineHeight: 1.15,
               letterSpacing: "-0.03em",
               color: "#0a0a0b",
               marginBottom: "20px",
             }}
           >
             <span style={{ 
-  fontFamily: "'Space Grotesk', sans-serif",
-  fontSize: "5.5rem"  // 40px if root is 16px
-}}>
-  KARL GABUTERO
-</span>
+              fontFamily: "'Space Grotesk', sans-serif",
+              fontSize: "clamp(2.1rem, 9vw, 5.5rem)",
+              lineHeight: 1.05,
+              display: "inline-block",
+              wordBreak: "break-word",
+            }}>
+              KARL GABUTERO
+            </span>
             <br />
             <span style={{ color: "#71717a" }}>
               builds <span style={{ color: "#4f7cff" }}>your vision</span> for web
@@ -78,6 +81,7 @@ export default function Hero() {
               lineHeight: 1.7,
               color: "#a1a1aa",
               maxWidth: "400px",
+              width: "100%",
               marginBottom: "32px",
             }}
           >
@@ -93,25 +97,28 @@ export default function Hero() {
               style={{
                 background: "#0a0a0b",
                 color: "#fafafa",
-                padding: "14px 38px",
-                fontSize: "17px",
+                padding: "14px clamp(24px, 5vw, 38px)",
+                fontSize: "16px",
                 borderRadius: "8px",
                 textDecoration: "none",
+                whiteSpace: "nowrap",
               }}
             >
               View projects
             </a>
+            
             <a
               href="#contact"
               className="inline-flex items-center font-medium transition-all hover:border-[#4f7cff] hover:text-[#4f7cff] active:translate-y-0"
               style={{
                 background: "transparent",
                 color: "#71717a",
-                padding: "14px 38px",
-                fontSize: "17px",
+                padding: "14px clamp(24px, 5vw, 38px)",
+                fontSize: "16px",
                 borderRadius: "8px",
                 border: "1px solid #e4e4e7",
                 textDecoration: "none",
+                whiteSpace: "nowrap",
               }}
             >
               Contact me
@@ -126,6 +133,7 @@ export default function Hero() {
               color: "#52525B",
               marginBottom: "32px",
               maxWidth: "440px",
+              width: "100%",
               lineHeight: 1.6,
             }}
           >
@@ -135,7 +143,7 @@ export default function Hero() {
           {/* Stats — grouped tighter together with a clear top divider, single blue accent kept consistent with the photo's bracket color */}
           <div
             className="flex w-full"
-            style={{ borderTop: "1px solid #e4e4e7", paddingTop: "24px" }}
+            style={{ borderTop: "1px solid #e4e4e7", paddingTop: "24px", flexWrap: "wrap", rowGap: "12px" }}
           >
             {[
               { num: "2+", label: "years experience", accent: true },
@@ -145,15 +153,17 @@ export default function Hero() {
               <div
                 key={label}
                 style={{
-                  paddingRight: "24px",
-                  paddingLeft: i > 0 ? "24px" : 0,
+                  paddingRight: "clamp(12px, 4vw, 24px)",
+                  paddingLeft: i > 0 ? "clamp(12px, 4vw, 24px)" : 0,
                   borderLeft: i > 0 ? "1px solid #e4e4e7" : "none",
+                  minWidth: 0,
+                  flex: "1 1 auto",
                 }}
               >
                 <div
                   className="font-bold font-mono"
                   style={{
-                    fontSize: "22px",
+                    fontSize: "clamp(18px, 3vw, 22px)",
                     color: accent ? "#4f7cff" : "#0a0a0b",
                     marginBottom: "4px",
                   }}
@@ -167,10 +177,10 @@ export default function Hero() {
         </div>
 
         {/* Right — photo, sharp-edged with corner bracket motif instead of circle+dashed rings */}
-        <div className="relative flex items-center justify-center">
+        <div className="relative flex items-center justify-center" style={{ width: "100%" }}>
           <div
             className="relative"
-            style={{ width: "300px" }}
+            style={{ width: "clamp(170px, 70vw, 300px)" }}
           >
             <img
               src={heropic}

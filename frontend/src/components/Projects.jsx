@@ -93,7 +93,7 @@ export default function Projects() {
     <section
       id="projects"
       className="relative overflow-hidden"
-      style={{ background: "#fafafa", padding: "112px 48px" }}
+      style={{ background: "#fafafa", padding: "clamp(64px, 12vw, 112px) clamp(20px, 5vw, 48px)" }}
     >
       {/* Dot-grid texture, consistent with Hero, About, and TechStack */}
       <div
@@ -134,10 +134,11 @@ export default function Projects() {
                 background: "#ffffff",
                 border: "1px solid #e4e4e7",
                 borderRadius: "10px",
+                minWidth: 0,
               }}
             >
               {/* Cover image */}
-              <div className="relative overflow-hidden" style={{ height: "210px" }}>
+              <div className="relative overflow-hidden" style={{ height: "clamp(160px, 32vw, 210px)" }}>
                 <img
                   src={project.cover}
                   alt={project.title}
@@ -185,7 +186,7 @@ export default function Projects() {
               </div>
 
               {/* Card body */}
-              <div style={{ padding: "24px" }}>
+              <div style={{ padding: "clamp(18px, 4vw, 24px)" }}>
                 <div style={{ marginBottom: "12px" }}>
                   <h3 className="font-semibold" style={{ fontSize: "16px", color: "#0a0a0b", marginBottom: "4px" }}>
                     {project.title}
@@ -258,7 +259,7 @@ export default function Projects() {
             </button>
 
             {/* Screenshot viewer */}
-            <div className="relative" style={{ height: "420px", background: "#f4f4f5" }}>
+            <div className="relative" style={{ height: "clamp(240px, 55vw, 420px)", background: "#f4f4f5" }}>
               <img
                 src={selected.screenshots[currentImg]}
                 alt={`${selected.title} screenshot ${currentImg + 1}`}
@@ -271,9 +272,9 @@ export default function Projects() {
                     onClick={prev}
                     className="absolute top-1/2 -translate-y-1/2 flex items-center justify-center transition-colors"
                     style={{
-                      left: "16px",
-                      width: "40px",
-                      height: "40px",
+                      left: "clamp(8px, 2vw, 16px)",
+                      width: "clamp(32px, 6vw, 40px)",
+                      height: "clamp(32px, 6vw, 40px)",
                       background: "#ffffff",
                       border: "1px solid #e4e4e7",
                       borderRadius: "8px",
@@ -288,9 +289,9 @@ export default function Projects() {
                     onClick={next}
                     className="absolute top-1/2 -translate-y-1/2 flex items-center justify-center transition-colors"
                     style={{
-                      right: "16px",
-                      width: "40px",
-                      height: "40px",
+                      right: "clamp(8px, 2vw, 16px)",
+                      width: "clamp(32px, 6vw, 40px)",
+                      height: "clamp(32px, 6vw, 40px)",
                       background: "#ffffff",
                       border: "1px solid #e4e4e7",
                       borderRadius: "8px",
@@ -339,9 +340,9 @@ export default function Projects() {
             </div>
 
             {/* Modal info */}
-            <div style={{ padding: "32px" }}>
+            <div style={{ padding: "clamp(20px, 5vw, 32px)" }}>
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between" style={{ gap: "16px", marginBottom: "16px" }}>
-                <div>
+                <div style={{ minWidth: 0 }}>
                   <h3 className="font-bold" style={{ fontSize: "22px", color: "#0a0a0b", letterSpacing: "-0.02em", marginBottom: "6px" }}>
                     {selected.title}
                   </h3>

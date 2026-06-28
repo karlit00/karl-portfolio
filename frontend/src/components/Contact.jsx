@@ -50,7 +50,7 @@ export default function Contact() {
     <section
       id="contact"
       className="relative overflow-hidden"
-      style={{ background: "#fafafa", padding: "112px 48px" }}
+      style={{ background: "#fafafa", padding: "clamp(64px, 12vw, 112px) clamp(20px, 5vw, 48px)" }}
     >
       {/* Dot-grid texture, consistent with the rest of the site */}
       <div
@@ -89,7 +89,7 @@ export default function Contact() {
           </span>
         </h2>
 
-        <p style={{ fontSize: "15px", lineHeight: 1.75, color: "#71717a", maxWidth: "480px", marginBottom: "56px" }}>
+        <p style={{ fontSize: "15px", lineHeight: 1.75, color: "#71717a", maxWidth: "480px", width: "100%", marginBottom: "clamp(36px, 7vw, 56px)" }}>
           I'm currently open to new opportunities — whether it's a full-time role, freelance project, or just a chat. Don't hesitate to reach out.
         </p>
 
@@ -103,7 +103,7 @@ export default function Contact() {
             {/* Left panel — flat near-black, matches the site's primary CTA color instead of a blue gradient */}
             <div
               className="relative flex flex-col justify-between overflow-hidden"
-              style={{ background: "#0a0a0b", minHeight: "360px", padding: "48px" }}
+              style={{ background: "#0a0a0b", minHeight: "clamp(260px, 40vw, 360px)", padding: "clamp(28px, 6vw, 48px)" }}
             >
               {/* Corner brackets — same motif used throughout the site */}
               {[
@@ -160,7 +160,7 @@ export default function Contact() {
             </div>
 
             {/* Right panel — contact links, all unified to one neutral treatment */}
-            <div className="flex flex-col justify-center" style={{ padding: "48px", gap: "12px" }}>
+            <div className="flex flex-col justify-center" style={{ padding: "clamp(24px, 6vw, 48px)", gap: "12px" }}>
               {contacts.map(({ label, value, href, icon }) => (
                 <a
                   key={label}
@@ -173,7 +173,7 @@ export default function Contact() {
                     background: "#fafafa",
                     border: "1px solid #e4e4e7",
                     borderRadius: "10px",
-                    padding: "16px 18px",
+                    padding: "clamp(12px, 3vw, 16px) clamp(14px, 3vw, 18px)",
                     gap: "16px",
                   }}
                   onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#4f7cff"; }}
@@ -181,7 +181,7 @@ export default function Contact() {
                 >
                   <div
                     className="flex items-center justify-center flex-shrink-0"
-                    style={{ width: "40px", height: "40px", borderRadius: "8px", background: "#f4f4f5", color: "#52525b" }}
+                    style={{ width: "clamp(36px, 8vw, 40px)", height: "clamp(36px, 8vw, 40px)", borderRadius: "8px", background: "#f4f4f5", color: "#52525b" }}
                   >
                     {icon}
                   </div>
