@@ -44,7 +44,7 @@ export default function Hero() {
       />
 
       <div
-        className="relative z-10 grid grid-cols-1 md:grid-cols-[1fr_auto] items-center w-full"
+        className="relative z-10 grid grid-cols-1 md:grid-cols-[auto_1fr] items-center w-full"
         style={{
           maxWidth: "1280px",
           margin: "0 auto",
@@ -52,14 +52,86 @@ export default function Hero() {
           gap: "clamp(32px, 6vw, 56px)",
         }}
       >
-        {/* Left content */}
+        {/* Left — photo */}
+        <div className="relative flex items-center justify-center" style={{ width: "100%" }}>
+          <div
+            className="relative"
+            style={{
+              width: "clamp(170px, 70vw, 300px)",
+              animation: "heroPhotoIn 0.8s cubic-bezier(0.16,1,0.3,1) 0.25s both",
+            }}
+          >
+            <img
+              src={heropic}
+              alt="Karl Gabutero"
+              className="w-full object-cover"
+              style={{
+                aspectRatio: "4 / 5",
+                borderRadius: "10px",
+                border: "1px solid #e4e4e7",
+              }}
+            />
+
+            {/* Corner brackets — pop in one by one after the photo settles */}
+            {[
+              { top: "-9px", left: "-9px", borderWidth: "2px 0 0 2px" },
+              { top: "-9px", right: "-9px", borderWidth: "2px 2px 0 0" },
+              { bottom: "-9px", left: "-9px", borderWidth: "0 0 2px 2px" },
+              { bottom: "-9px", right: "-9px", borderWidth: "0 2px 2px 0" },
+            ].map((pos, i) => (
+              <span
+                key={i}
+                className="absolute"
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  borderColor: "#4f7cff",
+                  borderStyle: "solid",
+                  animation: `heroBracket 0.5s cubic-bezier(0.34,1.56,0.64,1) ${0.6 + i * 0.06}s both`,
+                  ...pos,
+                }}
+              />
+            ))}
+
+            {/* Status tag */}
+            <div
+              className="absolute font-mono"
+              style={{
+                bottom: "16px",
+                left: "16px",
+                fontSize: "11px",
+                color: "#fafafa",
+                background: "rgba(10,10,11,0.85)",
+                padding: "6px 10px",
+                borderRadius: "6px",
+                display: "flex",
+                alignItems: "center",
+                gap: "6px",
+                animation: "heroFadeUp 0.5s ease-out 0.9s both",
+              }}
+            >
+              <span
+                style={{
+                  width: "6px",
+                  height: "6px",
+                  borderRadius: "50%",
+                  background: "#22c55e",
+                  display: "inline-block",
+                }}
+              />
+              online
+            </div>
+          </div>
+        </div>
+
+        {/* Right content */}
         <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", width: "100%", minWidth: 0 }}>
 
           {/* Label */}
           <p
             className="font-mono uppercase"
             style={{
-              fontSize: "12px",
+              fontSize: "14px",
               letterSpacing: "0.08em",
               color: "#a1a1aa",
               marginBottom: "18px",
@@ -73,7 +145,7 @@ export default function Hero() {
           <h1
             className="font-bold"
             style={{
-              fontSize: "clamp(28px, 5vw, 56px)",
+              fontSize: "clamp(22px, 3.6vw, 38px)",
               lineHeight: 1.15,
               letterSpacing: "-0.03em",
               color: "#0a0a0b",
@@ -82,7 +154,7 @@ export default function Hero() {
           >
             <span style={{ 
               fontFamily: "'Space Grotesk', sans-serif",
-              fontSize: "clamp(2.1rem, 9vw, 5.5rem)",
+              fontSize: "clamp(1.8rem, 7vw, 4rem)",
               lineHeight: 1.05,
               display: "inline-block",
               wordBreak: "break-word",
@@ -96,7 +168,7 @@ export default function Hero() {
               display: "inline-block",
               animation: "heroFadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s both",
             }}>
-              builds <span style={{ color: "#4f7cff" }}>your vision</span> for web
+              builds <span style={{ color: "#4f7cff" }}>your vision</span> for web <br />
               and mobile apps.
             </span>
           </h1>
@@ -210,78 +282,6 @@ export default function Hero() {
                 <div style={{ fontSize: "11px", color: "#a1a1aa" }}>{label}</div>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Right — photo */}
-        <div className="relative flex items-center justify-center" style={{ width: "100%" }}>
-          <div
-            className="relative"
-            style={{
-              width: "clamp(170px, 70vw, 300px)",
-              animation: "heroPhotoIn 0.8s cubic-bezier(0.16,1,0.3,1) 0.25s both",
-            }}
-          >
-            <img
-              src={heropic}
-              alt="Karl Gabutero"
-              className="w-full object-cover"
-              style={{
-                aspectRatio: "4 / 5",
-                borderRadius: "10px",
-                border: "1px solid #e4e4e7",
-              }}
-            />
-
-            {/* Corner brackets — pop in one by one after the photo settles */}
-            {[
-              { top: "-9px", left: "-9px", borderWidth: "2px 0 0 2px" },
-              { top: "-9px", right: "-9px", borderWidth: "2px 2px 0 0" },
-              { bottom: "-9px", left: "-9px", borderWidth: "0 0 2px 2px" },
-              { bottom: "-9px", right: "-9px", borderWidth: "0 2px 2px 0" },
-            ].map((pos, i) => (
-              <span
-                key={i}
-                className="absolute"
-                style={{
-                  width: "20px",
-                  height: "20px",
-                  borderColor: "#4f7cff",
-                  borderStyle: "solid",
-                  animation: `heroBracket 0.5s cubic-bezier(0.34,1.56,0.64,1) ${0.6 + i * 0.06}s both`,
-                  ...pos,
-                }}
-              />
-            ))}
-
-            {/* Status tag */}
-            <div
-              className="absolute font-mono"
-              style={{
-                bottom: "16px",
-                left: "16px",
-                fontSize: "11px",
-                color: "#fafafa",
-                background: "rgba(10,10,11,0.85)",
-                padding: "6px 10px",
-                borderRadius: "6px",
-                display: "flex",
-                alignItems: "center",
-                gap: "6px",
-                animation: "heroFadeUp 0.5s ease-out 0.9s both",
-              }}
-            >
-              <span
-                style={{
-                  width: "6px",
-                  height: "6px",
-                  borderRadius: "50%",
-                  background: "#22c55e",
-                  display: "inline-block",
-                }}
-              />
-              online
-            </div>
           </div>
         </div>
       </div>
