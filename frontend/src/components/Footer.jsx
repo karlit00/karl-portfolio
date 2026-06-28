@@ -47,32 +47,45 @@ export default function Footer() {
 
   return (
     <footer
-      className="relative pt-20 pb-8 px-8 md:px-12 overflow-hidden border-t"
-      style={{ background: "var(--background)", borderColor: "#e2e8f0" }}
+      className="relative overflow-hidden border-t"
+      style={{
+        background: "var(--background)",
+        borderColor: "#e2e8f0",
+        paddingTop: "80px",
+        paddingBottom: "40px",
+        paddingLeft: "48px",
+        paddingRight: "48px",
+      }}
     >
-      {/* Blob, echoing Hero/Contact */}
+      {/* Blob */}
       <div
         className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[700px] h-[300px] rounded-full pointer-events-none"
         style={{ background: "rgba(37,99,235,0.04)" }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-12 pb-12">
+      <div className="relative z-10" style={{ maxWidth: "1280px", margin: "0 auto" }}>
+
+        {/* Top row */}
+        <div
+          className="flex flex-col md:flex-row md:items-start md:justify-between"
+          style={{ gap: "56px", paddingBottom: "56px" }}
+        >
 
           {/* Brand */}
           <div style={{ maxWidth: "320px" }}>
             <div
-              className="font-bold mb-3"
-              style={{ fontSize: "22px", letterSpacing: "-0.02em", color: "var(--black)" }}
+              className="font-bold"
+              style={{ fontSize: "22px", letterSpacing: "-0.02em", color: "var(--black)", marginBottom: "14px" }}
             >
               Karl <span className="gradient-text">Gabutero</span>
             </div>
-            <p className="text-slate-500 text-sm leading-[1.8]">
+            <p className="text-slate-500" style={{ fontSize: "14px", lineHeight: 1.8 }}>
               Fullstack web and mobile developer, crafting clean, performant apps from API design to pixel-perfect UIs.
             </p>
-
-            {/* Availability badge, echoing Hero/Contact */}
-            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-xs font-semibold tracking-[0.08em] uppercase px-4 py-2 rounded-full border border-blue-200 mt-6">
+            <div
+              className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 font-semibold tracking-[0.08em] uppercase rounded-full border border-blue-200"
+              style={{ fontSize: "11px", padding: "8px 16px", marginTop: "24px" }}
+            >
               <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse flex-shrink-0" />
               Available for work
             </div>
@@ -80,16 +93,19 @@ export default function Footer() {
 
           {/* Nav */}
           <div>
-            <div className="text-xs text-slate-400 font-semibold tracking-[0.08em] uppercase mb-4">
+            <div
+              className="text-slate-400 font-semibold tracking-[0.08em] uppercase"
+              style={{ fontSize: "11px", marginBottom: "20px" }}
+            >
               Navigate
             </div>
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col" style={{ gap: "14px" }}>
               {nav.map(({ label, href }) => (
                 <li key={label}>
                   <a
                     href={href}
-                    className="text-sm font-medium text-slate-500 transition-colors hover:text-blue-600"
-                    style={{ textDecoration: "none" }}
+                    className="font-medium text-slate-500 transition-colors hover:text-blue-600"
+                    style={{ fontSize: "14px", textDecoration: "none" }}
                   >
                     {label}
                   </a>
@@ -100,10 +116,13 @@ export default function Footer() {
 
           {/* Socials */}
           <div>
-            <div className="text-xs text-slate-400 font-semibold tracking-[0.08em] uppercase mb-4">
+            <div
+              className="text-slate-400 font-semibold tracking-[0.08em] uppercase"
+              style={{ fontSize: "11px", marginBottom: "20px" }}
+            >
               Connect
             </div>
-            <div className="flex gap-3">
+            <div className="flex" style={{ gap: "12px" }}>
               {socials.map(({ label, href, icon, color, bg }) => (
                 <a
                   key={label}
@@ -111,8 +130,8 @@ export default function Footer() {
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                   aria-label={label}
-                  className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-all hover:-translate-y-0.5"
-                  style={{ background: bg, color: color }}
+                  className="rounded-xl flex items-center justify-center flex-shrink-0 transition-all hover:-translate-y-0.5"
+                  style={{ width: "44px", height: "44px", background: bg, color: color }}
                 >
                   {icon}
                 </a>
@@ -124,18 +143,18 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div
-          className="flex flex-col-reverse md:flex-row items-center justify-between gap-4 pt-8 border-t"
-          style={{ borderColor: "#e2e8f0" }}
+          className="flex flex-col-reverse md:flex-row items-center justify-between border-t"
+          style={{ borderColor: "#e2e8f0", paddingTop: "32px", gap: "16px" }}
         >
-          <p className="text-slate-400 text-xs">
+          <p className="text-slate-400" style={{ fontSize: "12px" }}>
             Designed &amp; built by{" "}
             <span className="text-blue-500 font-medium">Karl Christian Gabutero</span>
             {" "}· {new Date().getFullYear()}
           </p>
           <a
             href="#hero"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 transition-colors hover:text-blue-600"
-            style={{ textDecoration: "none" }}
+            className="inline-flex items-center gap-1.5 font-medium text-slate-500 transition-colors hover:text-blue-600"
+            style={{ fontSize: "12px", textDecoration: "none" }}
           >
             Back to top
             <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -143,6 +162,7 @@ export default function Footer() {
             </svg>
           </a>
         </div>
+
       </div>
     </footer>
   );

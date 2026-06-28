@@ -27,38 +27,53 @@ export default function TechStack() {
   return (
     <section
       id="techstack"
-      className="relative py-28 px-8 md:px-12 overflow-hidden"
-      style={{ background: "var(--background)" }}
+      className="relative overflow-hidden"
+      style={{ background: "var(--background)", padding: "112px 48px" }}
     >
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none" style={{ background: "rgba(37,99,235,0.03)" }} />
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{ background: "rgba(37,99,235,0.03)" }}
+      />
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10" style={{ maxWidth: "1280px", margin: "0 auto" }}>
 
         {/* Section label */}
-        <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-xs font-semibold tracking-[0.08em] uppercase px-4 py-2 rounded-full border border-blue-200 mb-6">
+        <div
+          className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-xs font-semibold tracking-[0.08em] uppercase rounded-full border border-blue-200"
+          style={{ padding: "8px 16px", marginBottom: "24px" }}
+        >
           <span className="w-2 h-2 rounded-full bg-blue-500 flex-shrink-0" />
           Tech Stack
         </div>
 
         {/* Heading */}
         <h2
-          className="font-bold leading-[1.1] mb-4"
-          style={{ fontSize: "clamp(32px, 4vw, 52px)", letterSpacing: "-0.03em", color: "var(--black)" }}
+          className="font-bold"
+          style={{
+            fontSize: "clamp(32px, 4vw, 52px)",
+            letterSpacing: "-0.03em",
+            lineHeight: 1.1,
+            color: "var(--black)",
+            marginBottom: "20px",
+          }}
         >
           Tools I work with.
         </h2>
 
-        <p className="text-slate-500 text-[17px] leading-[1.8] mb-16" style={{ maxWidth: "500px" }}>
+        <p
+          className="text-slate-500"
+          style={{ fontSize: "17px", lineHeight: 1.8, maxWidth: "500px", marginBottom: "64px" }}
+        >
           A collection of technologies I use to design, build, and ship products across web and mobile.
         </p>
 
         {/* Logo grid */}
-        <div className="grid gap-3" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))" }}>
+        <div
+          className="grid"
+          style={{ gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))", gap: "16px" }}
+        >
           {techs.map(({ name, icon }) => (
-            <div
-              key={name}
-              className="group flex flex-col items-center gap-2.5"
-            >
+            <div key={name} className="group flex flex-col items-center" style={{ gap: "12px" }}>
               <div
                 className="w-full aspect-square rounded-2xl bg-white border border-slate-200 flex items-center justify-center transition-all group-hover:-translate-y-1 group-hover:shadow-md group-hover:border-blue-200"
                 style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}
@@ -70,7 +85,9 @@ export default function TechStack() {
                   style={{ filter: name === "Express.js" || name === "Vercel" ? "invert(0.6)" : "none" }}
                 />
               </div>
-              <span className="text-[11px] text-slate-400 font-medium text-center leading-tight">{name}</span>
+              <span className="text-slate-400 font-medium text-center leading-tight" style={{ fontSize: "11px" }}>
+                {name}
+              </span>
             </div>
           ))}
         </div>

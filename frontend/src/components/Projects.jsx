@@ -95,23 +95,56 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative py-20 sm:py-28 px-5 sm:px-8 md:px-12 overflow-hidden"
-      style={{ background: "var(--background)" }}
+      className="relative overflow-hidden"
+      style={{ background: "var(--background)", padding: "112px 48px" }}
     >
       {/* Blobs */}
-      <div className="absolute -top-40 -right-36 w-[260px] sm:w-[380px] md:w-[500px] h-[260px] sm:h-[380px] md:h-[500px] rounded-full pointer-events-none" style={{ background: "rgba(37,99,235,0.05)" }} />
-      <div className="absolute -bottom-28 -left-24 w-[200px] sm:w-[280px] md:w-[360px] h-[200px] sm:h-[280px] md:h-[360px] rounded-full pointer-events-none" style={{ background: "rgba(37,99,235,0.03)" }} />
+      <div
+        className="absolute -top-40 -right-36 w-[260px] sm:w-[380px] md:w-[500px] h-[260px] sm:h-[380px] md:h-[500px] rounded-full pointer-events-none"
+        style={{ background: "rgba(37,99,235,0.05)" }}
+      />
+      <div
+        className="absolute -bottom-28 -left-24 w-[200px] sm:w-[280px] md:w-[360px] h-[200px] sm:h-[280px] md:h-[360px] rounded-full pointer-events-none"
+        style={{ background: "rgba(37,99,235,0.03)" }}
+      />
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10" style={{ maxWidth: "1280px", margin: "0 auto" }}>
 
         {/* Section label */}
-        <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-[11px] sm:text-xs font-semibold tracking-[0.08em] uppercase px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full border border-blue-200 mb-8 sm:mb-10">
+        <div
+          className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-xs font-semibold tracking-[0.08em] uppercase rounded-full border border-blue-200"
+          style={{ padding: "8px 16px", marginBottom: "24px" }}
+        >
           <span className="w-2 h-2 rounded-full bg-blue-500 flex-shrink-0" />
           Projects
         </div>
 
+        {/* Heading */}
+        <h2
+          className="font-bold"
+          style={{
+            fontSize: "clamp(32px, 4vw, 52px)",
+            letterSpacing: "-0.03em",
+            lineHeight: 1.1,
+            color: "var(--black)",
+            marginBottom: "20px",
+          }}
+        >
+          Things I've built.
+        </h2>
+
+        <p
+          className="text-slate-500"
+          style={{ fontSize: "17px", lineHeight: 1.8, maxWidth: "500px", marginBottom: "64px" }}
+        >
+          A selection of projects spanning web, mobile, and systems development.
+        </p>
+
         {/* Gallery grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+          style={{ gap: "24px" }}
+        >
           {projects.map((project) => (
             <div
               key={project.title}
@@ -120,7 +153,7 @@ export default function Projects() {
               style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}
             >
               {/* Cover image */}
-              <div className="relative overflow-hidden h-[170px] sm:h-[200px]">
+              <div className="relative overflow-hidden" style={{ height: "210px" }}>
                 <img
                   src={project.cover}
                   alt={project.title}
@@ -138,15 +171,23 @@ export default function Projects() {
               </div>
 
               {/* Card body */}
-              <div className="p-4 sm:p-5">
-                <div className="mb-3">
-                  <h3 className="font-semibold text-base mb-0.5" style={{ color: "var(--black)" }}>{project.title}</h3>
-                  <p className="text-xs text-slate-400">{project.subtitle}</p>
+              <div style={{ padding: "24px" }}>
+                <div style={{ marginBottom: "12px" }}>
+                  <h3 className="font-semibold" style={{ fontSize: "16px", color: "var(--black)", marginBottom: "4px" }}>
+                    {project.title}
+                  </h3>
+                  <p className="text-slate-400" style={{ fontSize: "12px" }}>{project.subtitle}</p>
                 </div>
-                <p className="text-slate-500 text-sm leading-relaxed mb-4 line-clamp-2">{project.description}</p>
-                <div className="flex flex-wrap gap-1.5">
+                <p className="text-slate-500 line-clamp-2" style={{ fontSize: "14px", lineHeight: 1.7, marginBottom: "20px" }}>
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap" style={{ gap: "6px" }}>
                   {project.tags.map((tag) => (
-                    <span key={tag} className="bg-blue-50 border border-blue-100 text-blue-600 text-[10px] font-medium px-2.5 py-1 rounded-md">
+                    <span
+                      key={tag}
+                      className="bg-blue-50 border border-blue-100 text-blue-600 font-medium rounded-md"
+                      style={{ fontSize: "11px", padding: "4px 10px" }}
+                    >
                       {tag}
                     </span>
                   ))}
@@ -160,20 +201,20 @@ export default function Projects() {
       {/* Modal */}
       {selected && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4"
-          style={{ background: "rgba(0,0,0,0.7)", backdropFilter: "blur(6px)" }}
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          style={{ background: "rgba(0,0,0,0.7)", backdropFilter: "blur(6px)", padding: "16px" }}
           onClick={closeModal}
         >
           <div
-            className="relative bg-white rounded-2xl sm:rounded-3xl overflow-y-auto w-full max-w-4xl"
-            style={{ boxShadow: "0 32px 80px rgba(0,0,0,0.3)", maxHeight: "92vh" }}
+            className="relative bg-white rounded-3xl overflow-y-auto w-full"
+            style={{ boxShadow: "0 32px 80px rgba(0,0,0,0.3)", maxHeight: "92vh", maxWidth: "896px" }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close */}
             <button
               onClick={closeModal}
-              className="absolute top-3 sm:top-4 right-3 sm:right-4 z-10 w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-700 transition-colors"
-              style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.1)" }}
+              className="absolute z-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-700 transition-colors"
+              style={{ top: "16px", right: "16px", width: "32px", height: "32px", boxShadow: "0 2px 8px rgba(0,0,0,0.1)" }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
@@ -181,7 +222,7 @@ export default function Projects() {
             </button>
 
             {/* Screenshot viewer */}
-            <div className="relative bg-slate-100 h-[230px] sm:h-[320px] md:h-[420px]">
+            <div className="relative bg-slate-100" style={{ height: "420px" }}>
               <img
                 src={selected.screenshots[currentImg]}
                 alt={`${selected.title} screenshot ${currentImg + 1}`}
@@ -192,8 +233,8 @@ export default function Projects() {
                 <>
                   <button
                     onClick={prev}
-                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white flex items-center justify-center text-slate-600 hover:text-blue-600 transition-colors"
-                    style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.15)" }}
+                    className="absolute top-1/2 -translate-y-1/2 rounded-full bg-white flex items-center justify-center text-slate-600 hover:text-blue-600 transition-colors"
+                    style={{ left: "16px", width: "40px", height: "40px", boxShadow: "0 2px 12px rgba(0,0,0,0.15)" }}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="15 18 9 12 15 6" />
@@ -201,8 +242,8 @@ export default function Projects() {
                   </button>
                   <button
                     onClick={next}
-                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white flex items-center justify-center text-slate-600 hover:text-blue-600 transition-colors"
-                    style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.15)" }}
+                    className="absolute top-1/2 -translate-y-1/2 rounded-full bg-white flex items-center justify-center text-slate-600 hover:text-blue-600 transition-colors"
+                    style={{ right: "16px", width: "40px", height: "40px", boxShadow: "0 2px 12px rgba(0,0,0,0.15)" }}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="9 18 15 12 9 6" />
@@ -213,14 +254,18 @@ export default function Projects() {
 
               {/* Counter */}
               <div
-                className="absolute top-3 sm:top-4 left-3 sm:left-4 text-[11px] sm:text-xs font-medium px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full"
-                style={{ background: "rgba(0,0,0,0.45)", color: "white" }}
+                className="absolute rounded-full font-medium"
+                style={{
+                  top: "16px", left: "16px",
+                  fontSize: "12px", padding: "6px 12px",
+                  background: "rgba(0,0,0,0.45)", color: "white",
+                }}
               >
                 {currentImg + 1} / {selected.screenshots.length}
               </div>
 
               {/* Dot indicators */}
-              <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex" style={{ gap: "6px" }}>
                 {selected.screenshots.map((_, i) => (
                   <button
                     key={i}
@@ -237,21 +282,29 @@ export default function Projects() {
             </div>
 
             {/* Modal info */}
-            <div className="p-5 sm:p-6">
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-3">
+            <div style={{ padding: "32px" }}>
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between" style={{ gap: "16px", marginBottom: "16px" }}>
                 <div>
-                  <h3 className="font-bold text-lg sm:text-xl mb-0.5" style={{ color: "var(--black)", letterSpacing: "-0.02em" }}>{selected.title}</h3>
-                  <p className="text-slate-400 text-sm">{selected.subtitle}</p>
+                  <h3 className="font-bold" style={{ fontSize: "22px", color: "var(--black)", letterSpacing: "-0.02em", marginBottom: "6px" }}>
+                    {selected.title}
+                  </h3>
+                  <p className="text-slate-400" style={{ fontSize: "14px" }}>{selected.subtitle}</p>
                 </div>
                 <div className="sm:text-right flex-shrink-0">
-                  <div className="text-xs text-blue-600 font-medium">{selected.role}</div>
-                  <div className="text-xs text-slate-400 mt-0.5">{selected.period}</div>
+                  <div className="text-blue-600 font-medium" style={{ fontSize: "13px" }}>{selected.role}</div>
+                  <div className="text-slate-400" style={{ fontSize: "12px", marginTop: "4px" }}>{selected.period}</div>
                 </div>
               </div>
-              <p className="text-slate-500 text-sm leading-relaxed mb-4">{selected.description}</p>
-              <div className="flex flex-wrap gap-1.5">
+              <p className="text-slate-500" style={{ fontSize: "14px", lineHeight: 1.75, marginBottom: "20px" }}>
+                {selected.description}
+              </p>
+              <div className="flex flex-wrap" style={{ gap: "6px" }}>
                 {selected.tags.map((tag) => (
-                  <span key={tag} className="bg-blue-50 border border-blue-100 text-blue-600 text-[10px] font-medium px-2.5 py-1 rounded-md">
+                  <span
+                    key={tag}
+                    className="bg-blue-50 border border-blue-100 text-blue-600 font-medium rounded-md"
+                    style={{ fontSize: "11px", padding: "4px 10px" }}
+                  >
                     {tag}
                   </span>
                 ))}

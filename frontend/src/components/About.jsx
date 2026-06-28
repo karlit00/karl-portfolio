@@ -37,49 +37,69 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative py-28 px-8 md:px-12 overflow-hidden"
-      style={{ background: "var(--background)" }}
+      className="relative overflow-hidden"
+      style={{ background: "var(--background)", padding: "112px 48px" }}
     >
       {/* Subtle blobs */}
       <div className="absolute top-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: "rgba(37,99,235,0.04)" }} />
       <div className="absolute bottom-0 right-0 w-[300px] h-[300px] rounded-full pointer-events-none" style={{ background: "rgba(37,99,235,0.03)" }} />
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10" style={{ maxWidth: "1280px", margin: "0 auto" }}>
 
         {/* Section label */}
-        <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-xs font-semibold tracking-[0.08em] uppercase px-4 py-2 rounded-full border border-blue-200 mb-6">
+        <div
+          className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-xs font-semibold tracking-[0.08em] uppercase rounded-full border border-blue-200"
+          style={{ padding: "8px 16px", marginBottom: "24px" }}
+        >
           <span className="w-2 h-2 rounded-full bg-blue-500 flex-shrink-0" />
           About Me
         </div>
 
         {/* Heading */}
         <h2
-          className="font-bold leading-[1.1] mb-6"
-          style={{ fontSize: "clamp(32px, 4vw, 52px)", letterSpacing: "-0.03em", color: "var(--black)" }}
+          className="font-bold"
+          style={{
+            fontSize: "clamp(32px, 4vw, 52px)",
+            letterSpacing: "-0.03em",
+            lineHeight: 1.1,
+            color: "var(--black)",
+            marginBottom: "24px",
+          }}
         >
           Passionate about building{" "}
           <span className="gradient-text">digital experiences.</span>
         </h2>
 
         {/* Bio */}
-        <p className="text-slate-500 text-[17px] leading-[1.8] mb-16" style={{ maxWidth: "640px" }}>
+        <p
+          className="text-slate-500"
+          style={{ fontSize: "17px", lineHeight: 1.8, maxWidth: "640px", marginBottom: "72px" }}
+        >
           A self-motivated and detail-oriented developer with strong leadership, creativity,
           and problem-solving skills. Skilled in full-stack web and mobile development,
           UI/UX design, and database management — dedicated to delivering user-centered
           digital solutions that are both performant and beautiful.
         </p>
 
-        {/* Top two-col: Expertise + Education */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20">
-
+        {/* Expertise + Education */}
+        <div
+          className="grid grid-cols-1 md:grid-cols-2"
+          style={{ gap: "64px", marginBottom: "80px" }}
+        >
           {/* Expertise */}
           <div>
-            <h3 className="font-semibold text-sm tracking-[0.08em] uppercase text-slate-400 mb-6">Area of Expertise</h3>
-            <div className="flex flex-wrap gap-2">
+            <h3
+              className="font-semibold text-slate-400 uppercase tracking-[0.08em]"
+              style={{ fontSize: "12px", marginBottom: "20px" }}
+            >
+              Area of Expertise
+            </h3>
+            <div className="flex flex-wrap" style={{ gap: "8px" }}>
               {expertise.map((item) => (
                 <span
                   key={item}
-                  className="bg-white border border-slate-200 text-slate-500 text-xs font-medium px-3 py-1.5 rounded-md"
+                  className="bg-white border border-slate-200 text-slate-500 font-medium rounded-md"
+                  style={{ fontSize: "12px", padding: "7px 14px" }}
                 >
                   {item}
                 </span>
@@ -87,44 +107,63 @@ export default function About() {
             </div>
           </div>
 
-          {/* Education — college only */}
+          {/* Education */}
           <div>
-            <h3 className="font-semibold text-sm tracking-[0.08em] uppercase text-slate-400 mb-6">Education</h3>
-            <div
-              className="p-5 rounded-2xl border border-blue-100"
-              style={{ background: "linear-gradient(140deg, #eff6ff, #dbeafe22)" }}
+            <h3
+              className="font-semibold text-slate-400 uppercase tracking-[0.08em]"
+              style={{ fontSize: "12px", marginBottom: "20px" }}
             >
-              <div className="text-xs font-semibold tracking-[0.08em] uppercase text-blue-400 mb-2">Undergraduate</div>
-              <div className="font-semibold text-sm mb-0.5" style={{ color: "var(--black)" }}>
+              Education
+            </h3>
+            <div
+              className="rounded-2xl border border-blue-100"
+              style={{
+                background: "linear-gradient(140deg, #eff6ff, #dbeafe22)",
+                padding: "24px",
+              }}
+            >
+              <div
+                className="font-semibold uppercase tracking-[0.08em] text-blue-400"
+                style={{ fontSize: "11px", marginBottom: "10px" }}
+              >
+                Undergraduate
+              </div>
+              <div className="font-semibold" style={{ fontSize: "14px", color: "var(--black)", marginBottom: "6px" }}>
                 National University – Manila
               </div>
-              <div className="text-slate-500 text-xs mb-1">
+              <div className="text-slate-500" style={{ fontSize: "13px", marginBottom: "6px" }}>
                 B.S. Information Technology — Web & Mobile Applications
               </div>
-              <div className="text-slate-400 text-xs">2022 – Expected September 2026</div>
+              <div className="text-slate-400" style={{ fontSize: "12px" }}>2022 – Expected September 2026</div>
             </div>
           </div>
-
         </div>
 
-        {/* Experience — full width */}
+        {/* Experience */}
         <div>
-          <h3 className="font-semibold text-sm tracking-[0.08em] uppercase text-slate-400 mb-8">Professional Experience</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <h3
+            className="font-semibold text-slate-400 uppercase tracking-[0.08em]"
+            style={{ fontSize: "12px", marginBottom: "28px" }}
+          >
+            Professional Experience
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "24px" }}>
             {experiences.map(({ company, role, location, period, desc }, i) => (
               <div
                 key={i}
-                className="bg-white border border-slate-200 rounded-2xl p-6 flex flex-col gap-3"
-                style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}
+                className="bg-white border border-slate-200 rounded-2xl flex flex-col"
+                style={{ padding: "28px", gap: "20px", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}
               >
                 <div>
-                  <div className="font-semibold text-sm mb-0.5" style={{ color: "var(--black)" }}>{company}</div>
-                  <div className="text-blue-600 text-xs font-medium">{role}</div>
+                  <div className="font-semibold" style={{ fontSize: "14px", color: "var(--black)", marginBottom: "6px" }}>
+                    {company}
+                  </div>
+                  <div className="text-blue-600 font-medium" style={{ fontSize: "12px" }}>{role}</div>
                 </div>
-                <p className="text-slate-500 text-sm leading-relaxed flex-1">{desc}</p>
-                <div className="border-t border-slate-100 pt-3 flex flex-col gap-0.5">
-                  <div className="text-xs text-slate-400">{period}</div>
-                  <div className="text-xs text-slate-400">{location}</div>
+                <p className="text-slate-500 flex-1" style={{ fontSize: "13px", lineHeight: 1.7 }}>{desc}</p>
+                <div className="border-t border-slate-100" style={{ paddingTop: "16px", display: "flex", flexDirection: "column", gap: "4px" }}>
+                  <div className="text-slate-400" style={{ fontSize: "12px" }}>{period}</div>
+                  <div className="text-slate-400" style={{ fontSize: "12px" }}>{location}</div>
                 </div>
               </div>
             ))}

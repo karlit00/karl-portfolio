@@ -57,37 +57,50 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-20 sm:py-28 px-5 sm:px-8 md:px-12 overflow-hidden"
-      style={{ background: "var(--background)" }}
+      className="relative overflow-hidden"
+      style={{ background: "var(--background)", padding: "112px 48px" }}
     >
       {/* Blobs */}
       <div className="absolute -top-40 -right-36 w-[320px] sm:w-[460px] md:w-[600px] h-[320px] sm:h-[460px] md:h-[600px] rounded-full pointer-events-none" style={{ background: "rgba(37,99,235,0.05)" }} />
       <div className="absolute -bottom-28 -left-24 w-[220px] sm:w-[300px] md:w-[400px] h-[220px] sm:h-[300px] md:h-[400px] rounded-full pointer-events-none" style={{ background: "rgba(37,99,235,0.03)" }} />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none hidden sm:block" style={{ background: "rgba(37,99,235,0.02)" }} />
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10" style={{ maxWidth: "1280px", margin: "0 auto" }}>
 
         {/* Section label */}
-        <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-[11px] sm:text-xs font-semibold tracking-[0.08em] uppercase px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full border border-blue-200 mb-5 sm:mb-6">
+        <div
+          className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-xs font-semibold tracking-[0.08em] uppercase rounded-full border border-blue-200"
+          style={{ padding: "8px 16px", marginBottom: "24px" }}
+        >
           <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse flex-shrink-0" />
           Contact
         </div>
 
         {/* Heading */}
         <h2
-          className="font-bold leading-[1.15] sm:leading-[1.1] mb-3 sm:mb-4"
-          style={{ fontSize: "clamp(28px, 5.5vw, 52px)", letterSpacing: "-0.03em", color: "var(--black)" }}
+          className="font-bold"
+          style={{
+            fontSize: "clamp(28px, 5.5vw, 52px)",
+            letterSpacing: "-0.03em",
+            lineHeight: 1.1,
+            color: "var(--black)",
+            marginBottom: "20px",
+          }}
         >
           Let's work{" "}
           <span className="gradient-text">together.</span>
         </h2>
-        <p className="text-slate-500 text-[15px] sm:text-[17px] leading-[1.75] sm:leading-[1.8] mb-12 sm:mb-16" style={{ maxWidth: "500px" }}>
+
+        <p
+          className="text-slate-500"
+          style={{ fontSize: "17px", lineHeight: 1.8, maxWidth: "500px", marginBottom: "64px" }}
+        >
           I'm currently open to new opportunities — whether it's a full-time role, freelance project, or just a chat. Don't hesitate to reach out.
         </p>
 
         {/* Main card */}
         <div
-          className="rounded-2xl sm:rounded-3xl overflow-hidden"
+          className="rounded-3xl overflow-hidden"
           style={{
             background: "white",
             border: "1px solid #e2e8f0",
@@ -98,33 +111,42 @@ export default function Contact() {
 
             {/* Left panel — dark */}
             <div
-              className="relative p-7 sm:p-10 flex flex-col justify-between overflow-hidden"
+              className="relative flex flex-col justify-between overflow-hidden"
               style={{
                 background: "linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 60%, #3b82f6 100%)",
-                minHeight: "320px",
+                minHeight: "360px",
+                padding: "48px",
               }}
             >
-              {/* Decorative circles */}
               <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full" style={{ background: "rgba(255,255,255,0.05)" }} />
               <div className="absolute -bottom-12 -left-12 w-36 h-36 rounded-full" style={{ background: "rgba(255,255,255,0.05)" }} />
               <div className="absolute top-1/2 right-8 w-20 h-20 rounded-full hidden sm:block" style={{ background: "rgba(255,255,255,0.04)" }} />
 
               <div className="relative z-10">
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-5 sm:mb-6">
+                <div
+                  className="rounded-2xl bg-white/10 flex items-center justify-center"
+                  style={{ width: "52px", height: "52px", marginBottom: "28px" }}
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                   </svg>
                 </div>
-                <h3 className="text-white font-bold text-xl sm:text-2xl mb-3" style={{ letterSpacing: "-0.02em" }}>
+                <h3
+                  className="text-white font-bold"
+                  style={{ fontSize: "26px", letterSpacing: "-0.02em", marginBottom: "16px" }}
+                >
                   Get in touch
                 </h3>
-                <p className="text-blue-200 text-sm leading-relaxed" style={{ maxWidth: "260px" }}>
+                <p className="text-blue-200" style={{ fontSize: "15px", lineHeight: 1.75, maxWidth: "260px" }}>
                   Have a project in mind or want to collaborate? I'd love to hear from you. Pick the channel that works best for you.
                 </p>
               </div>
 
-              <div className="relative z-10 mt-8 sm:mt-10">
-                <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white text-[11px] sm:text-xs font-semibold tracking-[0.06em] uppercase px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full">
+              <div className="relative z-10" style={{ marginTop: "48px" }}>
+                <div
+                  className="inline-flex items-center gap-2 border border-white/20 text-white font-semibold tracking-[0.06em] uppercase rounded-full"
+                  style={{ background: "rgba(255,255,255,0.1)", fontSize: "11px", padding: "8px 16px" }}
+                >
                   <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
                   Available for work
                 </div>
@@ -132,17 +154,22 @@ export default function Contact() {
             </div>
 
             {/* Right panel — contact links */}
-            <div className="p-5 sm:p-10 flex flex-col justify-center gap-3 sm:gap-4">
+            <div
+              className="flex flex-col justify-center"
+              style={{ padding: "48px", gap: "16px" }}
+            >
               {contacts.map(({ label, value, href, icon, color, bg }) => (
                 <a
                   key={label}
                   href={href}
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="group flex items-center gap-3 sm:gap-4 rounded-2xl px-4 sm:px-5 py-3.5 sm:py-4 border border-slate-100 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                  className="group flex items-center rounded-2xl border border-slate-100 transition-all hover:-translate-y-0.5 hover:shadow-lg"
                   style={{
                     textDecoration: "none",
                     background: "#fafafa",
+                    padding: "16px 20px",
+                    gap: "16px",
                     boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
                   }}
                   onMouseEnter={(e) => {
@@ -154,25 +181,17 @@ export default function Contact() {
                     e.currentTarget.style.background = "#fafafa";
                   }}
                 >
-                  {/* Icon */}
                   <div
-                    className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-all"
-                    style={{ background: bg, color: color }}
+                    className="rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ width: "44px", height: "44px", background: bg, color: color }}
                   >
                     {icon}
                   </div>
-
-                  {/* Text */}
                   <div className="flex-1 min-w-0">
-                    <div className="text-xs text-slate-400 font-medium mb-0.5">{label}</div>
-                    <div className="text-sm font-semibold truncate" style={{ color: "var(--black)" }}>{value}</div>
+                    <div className="text-slate-400 font-medium" style={{ fontSize: "11px", marginBottom: "3px" }}>{label}</div>
+                    <div className="font-semibold truncate" style={{ fontSize: "14px", color: "var(--black)" }}>{value}</div>
                   </div>
-
-                  {/* Arrow */}
-                  <div
-                    className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all hidden sm:flex"
-                    style={{ background: "transparent", color: "#cbd5e1" }}
-                  >
+                  <div className="hidden sm:flex rounded-lg items-center justify-center flex-shrink-0" style={{ width: "32px", height: "32px", color: "#cbd5e1" }}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M7 7h10v10" /><path d="M7 17 17 7" />
                     </svg>
@@ -183,7 +202,6 @@ export default function Contact() {
 
           </div>
         </div>
-
       </div>
     </section>
   );
