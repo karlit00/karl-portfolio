@@ -38,42 +38,64 @@ export default function About() {
     <section
       id="about"
       className="relative overflow-hidden"
-      style={{ background: "var(--background)", padding: "112px 48px" }}
+      style={{ background: "#fafafa", padding: "112px 48px" }}
     >
-      {/* Subtle blobs */}
-      <div className="absolute top-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: "rgba(37,99,235,0.04)" }} />
-      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] rounded-full pointer-events-none" style={{ background: "rgba(37,99,235,0.03)" }} />
+      {/* Loads the display font used for the heading accent — same as Hero */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap');
+      `}</style>
+
+      {/* Dot-grid texture, consistent with Hero */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, #e4e4e7 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+          opacity: 0.6,
+        }}
+      />
 
       <div className="relative z-10" style={{ maxWidth: "1280px", margin: "0 auto" }}>
 
-        {/* Section label */}
-        <div
-          className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-xs font-semibold tracking-[0.08em] uppercase rounded-full border border-blue-200"
-          style={{ padding: "8px 16px", marginBottom: "24px" }}
+        {/* Section label — quiet mono, no pill, matches Hero's label treatment */}
+        <p
+          className="font-mono uppercase"
+          style={{
+            fontSize: "12px",
+            letterSpacing: "0.08em",
+            color: "#a1a1aa",
+            marginBottom: "18px",
+          }}
         >
-          <span className="w-2 h-2 rounded-full bg-blue-500 flex-shrink-0" />
-          About Me
-        </div>
+          About me
+        </p>
 
-        {/* Heading */}
+        {/* Heading — Space Grotesk on the key phrase instead of a gradient span */}
         <h2
           className="font-bold"
           style={{
-            fontSize: "clamp(32px, 4vw, 52px)",
+            fontSize: "clamp(30px, 4vw, 48px)",
             letterSpacing: "-0.03em",
-            lineHeight: 1.1,
-            color: "var(--black)",
+            lineHeight: 1.15,
+            color: "#0a0a0b",
             marginBottom: "24px",
           }}
         >
           Passionate about building{" "}
-          <span className="gradient-text">digital experiences.</span>
+          <span style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#4f7cff" }}>
+            digital experiences.
+          </span>
         </h2>
 
         {/* Bio */}
         <p
-          className="text-slate-500"
-          style={{ fontSize: "17px", lineHeight: 1.8, maxWidth: "640px", marginBottom: "72px" }}
+          style={{
+            fontSize: "15px",
+            lineHeight: 1.75,
+            color: "#71717a",
+            maxWidth: "620px",
+            marginBottom: "72px",
+          }}
         >
           A self-motivated and detail-oriented developer with strong leadership, creativity,
           and problem-solving skills. Skilled in full-stack web and mobile development,
@@ -81,25 +103,77 @@ export default function About() {
           digital solutions that are both performant and beautiful.
         </p>
 
-        {/* Expertise + Education */}
+        {/* Experience — bordered gray cards, blue used once per card for the role */}
+        <div style={{ marginBottom: "80px" }}>
+          <p
+            className="font-mono uppercase"
+            style={{ fontSize: "11px", letterSpacing: "0.08em", color: "#a1a1aa", marginBottom: "28px" }}
+          >
+            Professional experience
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "24px" }}>
+            {experiences.map(({ company, role, location, period, desc }, i) => (
+              <div
+                key={i}
+                className="flex flex-col"
+                style={{
+                  background: "#ffffff",
+                  border: "1px solid #e4e4e7",
+                  borderRadius: "10px",
+                  padding: "28px",
+                  gap: "20px",
+                }}
+              >
+                <div>
+                  <div className="font-semibold" style={{ fontSize: "14px", color: "#0a0a0b", marginBottom: "6px" }}>
+                    {company}
+                  </div>
+                  <div className="font-mono" style={{ fontSize: "12px", color: "#4f7cff" }}>{role}</div>
+                </div>
+                <p className="flex-1" style={{ fontSize: "13px", lineHeight: 1.7, color: "#71717a" }}>{desc}</p>
+                <div
+                  style={{
+                    borderTop: "1px solid #e4e4e7",
+                    paddingTop: "16px",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "4px",
+                  }}
+                >
+                  <div className="font-mono" style={{ fontSize: "11px", color: "#a1a1aa" }}>{period}</div>
+                  <div className="font-mono" style={{ fontSize: "11px", color: "#a1a1aa" }}>{location}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Expertise + Education — same quiet chip treatment as Hero's stack line, demoted to gray */}
         <div
           className="grid grid-cols-1 md:grid-cols-2"
-          style={{ gap: "64px", marginBottom: "80px" }}
+          style={{ gap: "64px" }}
         >
           {/* Expertise */}
           <div>
-            <h3
-              className="font-semibold text-slate-400 uppercase tracking-[0.08em]"
-              style={{ fontSize: "12px", marginBottom: "20px" }}
+            <p
+              className="font-mono uppercase"
+              style={{ fontSize: "11px", letterSpacing: "0.08em", color: "#a1a1aa", marginBottom: "20px" }}
             >
-              Area of Expertise
-            </h3>
+              Area of expertise
+            </p>
             <div className="flex flex-wrap" style={{ gap: "8px" }}>
               {expertise.map((item) => (
                 <span
                   key={item}
-                  className="bg-white border border-slate-200 text-slate-500 font-medium rounded-md"
-                  style={{ fontSize: "12px", padding: "7px 14px" }}
+                  className="font-mono"
+                  style={{
+                    fontSize: "12px",
+                    padding: "6px 12px",
+                    borderRadius: "6px",
+                    background: "#f4f4f5",
+                    border: "1px solid #e4e4e7",
+                    color: "#52525b",
+                  }}
                 >
                   {item}
                 </span>
@@ -107,66 +181,55 @@ export default function About() {
             </div>
           </div>
 
-          {/* Education */}
+          {/* Education — clean bordered card with the corner-bracket signature, no gradient */}
           <div>
-            <h3
-              className="font-semibold text-slate-400 uppercase tracking-[0.08em]"
-              style={{ fontSize: "12px", marginBottom: "20px" }}
+            <p
+              className="font-mono uppercase"
+              style={{ fontSize: "11px", letterSpacing: "0.08em", color: "#a1a1aa", marginBottom: "20px" }}
             >
               Education
-            </h3>
+            </p>
             <div
-              className="rounded-2xl border border-blue-100"
+              className="relative"
               style={{
-                background: "linear-gradient(140deg, #eff6ff, #dbeafe22)",
+                background: "#ffffff",
+                border: "1px solid #e4e4e7",
+                borderRadius: "10px",
                 padding: "24px",
               }}
             >
+              {[
+                { top: "-7px", left: "-7px", borderWidth: "2px 0 0 2px" },
+                { top: "-7px", right: "-7px", borderWidth: "2px 2px 0 0" },
+                { bottom: "-7px", left: "-7px", borderWidth: "0 0 2px 2px" },
+                { bottom: "-7px", right: "-7px", borderWidth: "0 2px 2px 0" },
+              ].map((pos, i) => (
+                <span
+                  key={i}
+                  className="absolute"
+                  style={{
+                    width: "16px",
+                    height: "16px",
+                    borderColor: "#4f7cff",
+                    borderStyle: "solid",
+                    ...pos,
+                  }}
+                />
+              ))}
               <div
-                className="font-semibold uppercase tracking-[0.08em] text-blue-400"
-                style={{ fontSize: "11px", marginBottom: "10px" }}
+                className="font-mono uppercase"
+                style={{ fontSize: "11px", letterSpacing: "0.08em", color: "#4f7cff", marginBottom: "10px" }}
               >
                 Undergraduate
               </div>
-              <div className="font-semibold" style={{ fontSize: "14px", color: "var(--black)", marginBottom: "6px" }}>
+              <div className="font-semibold" style={{ fontSize: "14px", color: "#0a0a0b", marginBottom: "6px" }}>
                 National University – Manila
               </div>
-              <div className="text-slate-500" style={{ fontSize: "13px", marginBottom: "6px" }}>
-                B.S. Information Technology — Web & Mobile Applications
+              <div style={{ fontSize: "13px", color: "#71717a", marginBottom: "6px" }}>
+                B.S. Information Technology — Web &amp; Mobile Applications
               </div>
-              <div className="text-slate-400" style={{ fontSize: "12px" }}>2022 – Expected September 2026</div>
+              <div style={{ fontSize: "12px", color: "#a1a1aa" }}>2022 – Expected September 2026</div>
             </div>
-          </div>
-        </div>
-
-        {/* Experience */}
-        <div>
-          <h3
-            className="font-semibold text-slate-400 uppercase tracking-[0.08em]"
-            style={{ fontSize: "12px", marginBottom: "28px" }}
-          >
-            Professional Experience
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "24px" }}>
-            {experiences.map(({ company, role, location, period, desc }, i) => (
-              <div
-                key={i}
-                className="bg-white border border-slate-200 rounded-2xl flex flex-col"
-                style={{ padding: "28px", gap: "20px", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}
-              >
-                <div>
-                  <div className="font-semibold" style={{ fontSize: "14px", color: "var(--black)", marginBottom: "6px" }}>
-                    {company}
-                  </div>
-                  <div className="text-blue-600 font-medium" style={{ fontSize: "12px" }}>{role}</div>
-                </div>
-                <p className="text-slate-500 flex-1" style={{ fontSize: "13px", lineHeight: 1.7 }}>{desc}</p>
-                <div className="border-t border-slate-100" style={{ paddingTop: "16px", display: "flex", flexDirection: "column", gap: "4px" }}>
-                  <div className="text-slate-400" style={{ fontSize: "12px" }}>{period}</div>
-                  <div className="text-slate-400" style={{ fontSize: "12px" }}>{location}</div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
 

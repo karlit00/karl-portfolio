@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 import ht1 from "../assets/ht1.jpg";
 import ht2 from "../assets/ht2.jpg";
 import ht3 from "../assets/ht3.jpg";
@@ -8,7 +7,6 @@ import ht5 from "../assets/ht5.jpg";
 import ht6 from "../assets/ht6.jpg";
 import ht7 from "../assets/ht7.jpg";
 import ht8 from "../assets/ht8.jpg";
-
 import pi1 from "../assets/pi1.jpg";
 import pi2 from "../assets/pi2.jpg";
 import pi3 from "../assets/pi3.jpg";
@@ -18,7 +16,6 @@ import pi6 from "../assets/pi6.jpg";
 import pi7 from "../assets/pi7.jpg";
 import pi8 from "../assets/pi8.jpg";
 import pi9 from "../assets/pi9.jpg";
-
 import tv1 from "../assets/tv1.jpg";
 import tv2 from "../assets/tv2.jpg";
 import tv3 from "../assets/tv3.jpg";
@@ -96,48 +93,31 @@ export default function Projects() {
     <section
       id="projects"
       className="relative overflow-hidden"
-      style={{ background: "var(--background)", padding: "112px 48px" }}
+      style={{ background: "#fafafa", padding: "112px 48px" }}
     >
-      {/* Blobs */}
+      {/* Dot-grid texture, consistent with Hero, About, and TechStack */}
       <div
-        className="absolute -top-40 -right-36 w-[260px] sm:w-[380px] md:w-[500px] h-[260px] sm:h-[380px] md:h-[500px] rounded-full pointer-events-none"
-        style={{ background: "rgba(37,99,235,0.05)" }}
-      />
-      <div
-        className="absolute -bottom-28 -left-24 w-[200px] sm:w-[280px] md:w-[360px] h-[200px] sm:h-[280px] md:h-[360px] rounded-full pointer-events-none"
-        style={{ background: "rgba(37,99,235,0.03)" }}
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, #e4e4e7 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+          opacity: 0.6,
+        }}
       />
 
       <div className="relative z-10" style={{ maxWidth: "1280px", margin: "0 auto" }}>
 
-        {/* Section label */}
-        <div
-          className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-xs font-semibold tracking-[0.08em] uppercase rounded-full border border-blue-200"
-          style={{ padding: "8px 16px", marginBottom: "24px" }}
-        >
-          <span className="w-2 h-2 rounded-full bg-blue-500 flex-shrink-0" />
-          Projects
-        </div>
-
-        {/* Heading */}
-        <h2
-          className="font-bold"
+        {/* Section label — plain mono gray, no pill, matches the rest of the site */}
+        <p
+          className="font-mono uppercase"
           style={{
-            fontSize: "clamp(32px, 4vw, 52px)",
-            letterSpacing: "-0.03em",
-            lineHeight: 1.1,
-            color: "var(--black)",
-            marginBottom: "20px",
+            fontSize: "12px",
+            letterSpacing: "0.08em",
+            color: "#a1a1aa",
+            marginBottom: "32px",
           }}
         >
-          Things I've built.
-        </h2>
-
-        <p
-          className="text-slate-500"
-          style={{ fontSize: "17px", lineHeight: 1.8, maxWidth: "500px", marginBottom: "64px" }}
-        >
-          A selection of projects spanning web, mobile, and systems development.
+          Projects
         </p>
 
         {/* Gallery grid */}
@@ -149,8 +129,12 @@ export default function Projects() {
             <div
               key={project.title}
               onClick={() => openModal(project)}
-              className="group cursor-pointer bg-white border border-slate-200 rounded-2xl overflow-hidden transition-all hover:-translate-y-1 hover:shadow-xl hover:border-blue-200"
-              style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}
+              className="group cursor-pointer overflow-hidden transition-transform hover:-translate-y-1"
+              style={{
+                background: "#ffffff",
+                border: "1px solid #e4e4e7",
+                borderRadius: "10px",
+              }}
             >
               {/* Cover image */}
               <div className="relative overflow-hidden" style={{ height: "210px" }}>
@@ -159,13 +143,43 @@ export default function Projects() {
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+
+                {/* Corner brackets — same hover motif used across the site */}
+                {[
+                  { top: "10px", left: "10px", borderWidth: "2px 0 0 2px" },
+                  { top: "10px", right: "10px", borderWidth: "2px 2px 0 0" },
+                  { bottom: "10px", left: "10px", borderWidth: "0 0 2px 2px" },
+                  { bottom: "10px", right: "10px", borderWidth: "0 2px 2px 0" },
+                ].map((pos, i) => (
+                  <span
+                    key={i}
+                    className="absolute opacity-0 group-hover:opacity-100 transition-opacity"
+                    style={{
+                      width: "16px",
+                      height: "16px",
+                      borderColor: "#ffffff",
+                      borderStyle: "solid",
+                      ...pos,
+                    }}
+                  />
+                ))}
+
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-white text-blue-600 text-xs font-semibold px-4 py-2 rounded-full shadow-lg flex items-center gap-1.5">
+                  <div
+                    className="font-mono flex items-center gap-1.5"
+                    style={{
+                      fontSize: "12px",
+                      color: "#0a0a0b",
+                      background: "#ffffff",
+                      padding: "8px 16px",
+                      borderRadius: "6px",
+                    }}
+                  >
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" />
                     </svg>
-                    View Screenshots
+                    View screenshots
                   </div>
                 </div>
               </div>
@@ -173,20 +187,27 @@ export default function Projects() {
               {/* Card body */}
               <div style={{ padding: "24px" }}>
                 <div style={{ marginBottom: "12px" }}>
-                  <h3 className="font-semibold" style={{ fontSize: "16px", color: "var(--black)", marginBottom: "4px" }}>
+                  <h3 className="font-semibold" style={{ fontSize: "16px", color: "#0a0a0b", marginBottom: "4px" }}>
                     {project.title}
                   </h3>
-                  <p className="text-slate-400" style={{ fontSize: "12px" }}>{project.subtitle}</p>
+                  <p className="font-mono" style={{ fontSize: "11px", color: "#a1a1aa" }}>{project.subtitle}</p>
                 </div>
-                <p className="text-slate-500 line-clamp-2" style={{ fontSize: "14px", lineHeight: 1.7, marginBottom: "20px" }}>
+                <p className="line-clamp-2" style={{ fontSize: "14px", lineHeight: 1.7, color: "#71717a", marginBottom: "20px" }}>
                   {project.description}
                 </p>
                 <div className="flex flex-wrap" style={{ gap: "6px" }}>
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="bg-blue-50 border border-blue-100 text-blue-600 font-medium rounded-md"
-                      style={{ fontSize: "11px", padding: "4px 10px" }}
+                      className="font-mono"
+                      style={{
+                        fontSize: "11px",
+                        padding: "4px 10px",
+                        borderRadius: "6px",
+                        background: "#f4f4f5",
+                        border: "1px solid #e4e4e7",
+                        color: "#52525b",
+                      }}
                     >
                       {tag}
                     </span>
@@ -202,19 +223,34 @@ export default function Projects() {
       {selected && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center"
-          style={{ background: "rgba(0,0,0,0.7)", backdropFilter: "blur(6px)", padding: "16px" }}
+          style={{ background: "rgba(10,10,11,0.7)", backdropFilter: "blur(6px)", padding: "16px" }}
           onClick={closeModal}
         >
           <div
-            className="relative bg-white rounded-3xl overflow-y-auto w-full"
-            style={{ boxShadow: "0 32px 80px rgba(0,0,0,0.3)", maxHeight: "92vh", maxWidth: "896px" }}
+            className="relative overflow-y-auto w-full"
+            style={{
+              background: "#ffffff",
+              border: "1px solid #e4e4e7",
+              borderRadius: "16px",
+              maxHeight: "92vh",
+              maxWidth: "896px",
+            }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close */}
             <button
               onClick={closeModal}
-              className="absolute z-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-700 transition-colors"
-              style={{ top: "16px", right: "16px", width: "32px", height: "32px", boxShadow: "0 2px 8px rgba(0,0,0,0.1)" }}
+              className="absolute z-10 flex items-center justify-center transition-colors"
+              style={{
+                top: "16px",
+                right: "16px",
+                width: "32px",
+                height: "32px",
+                background: "#ffffff",
+                border: "1px solid #e4e4e7",
+                borderRadius: "8px",
+                color: "#a1a1aa",
+              }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
@@ -222,7 +258,7 @@ export default function Projects() {
             </button>
 
             {/* Screenshot viewer */}
-            <div className="relative bg-slate-100" style={{ height: "420px" }}>
+            <div className="relative" style={{ height: "420px", background: "#f4f4f5" }}>
               <img
                 src={selected.screenshots[currentImg]}
                 alt={`${selected.title} screenshot ${currentImg + 1}`}
@@ -233,8 +269,16 @@ export default function Projects() {
                 <>
                   <button
                     onClick={prev}
-                    className="absolute top-1/2 -translate-y-1/2 rounded-full bg-white flex items-center justify-center text-slate-600 hover:text-blue-600 transition-colors"
-                    style={{ left: "16px", width: "40px", height: "40px", boxShadow: "0 2px 12px rgba(0,0,0,0.15)" }}
+                    className="absolute top-1/2 -translate-y-1/2 flex items-center justify-center transition-colors"
+                    style={{
+                      left: "16px",
+                      width: "40px",
+                      height: "40px",
+                      background: "#ffffff",
+                      border: "1px solid #e4e4e7",
+                      borderRadius: "8px",
+                      color: "#0a0a0b",
+                    }}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="15 18 9 12 15 6" />
@@ -242,8 +286,16 @@ export default function Projects() {
                   </button>
                   <button
                     onClick={next}
-                    className="absolute top-1/2 -translate-y-1/2 rounded-full bg-white flex items-center justify-center text-slate-600 hover:text-blue-600 transition-colors"
-                    style={{ right: "16px", width: "40px", height: "40px", boxShadow: "0 2px 12px rgba(0,0,0,0.15)" }}
+                    className="absolute top-1/2 -translate-y-1/2 flex items-center justify-center transition-colors"
+                    style={{
+                      right: "16px",
+                      width: "40px",
+                      height: "40px",
+                      background: "#ffffff",
+                      border: "1px solid #e4e4e7",
+                      borderRadius: "8px",
+                      color: "#0a0a0b",
+                    }}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="9 18 15 12 9 6" />
@@ -254,27 +306,32 @@ export default function Projects() {
 
               {/* Counter */}
               <div
-                className="absolute rounded-full font-medium"
+                className="absolute font-mono"
                 style={{
-                  top: "16px", left: "16px",
-                  fontSize: "12px", padding: "6px 12px",
-                  background: "rgba(0,0,0,0.45)", color: "white",
+                  top: "16px",
+                  left: "16px",
+                  fontSize: "11px",
+                  padding: "6px 12px",
+                  borderRadius: "6px",
+                  background: "rgba(10,10,11,0.75)",
+                  color: "#fafafa",
                 }}
               >
                 {currentImg + 1} / {selected.screenshots.length}
               </div>
 
-              {/* Dot indicators */}
+              {/* Dot indicators — active dot uses the single blue accent */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex" style={{ gap: "6px" }}>
                 {selected.screenshots.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setCurrentImg(i)}
-                    className="rounded-full transition-all"
+                    className="transition-all"
                     style={{
                       width: i === currentImg ? "20px" : "6px",
                       height: "6px",
-                      background: i === currentImg ? "white" : "rgba(255,255,255,0.45)",
+                      borderRadius: "3px",
+                      background: i === currentImg ? "#4f7cff" : "rgba(255,255,255,0.5)",
                     }}
                   />
                 ))}
@@ -285,25 +342,32 @@ export default function Projects() {
             <div style={{ padding: "32px" }}>
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between" style={{ gap: "16px", marginBottom: "16px" }}>
                 <div>
-                  <h3 className="font-bold" style={{ fontSize: "22px", color: "var(--black)", letterSpacing: "-0.02em", marginBottom: "6px" }}>
+                  <h3 className="font-bold" style={{ fontSize: "22px", color: "#0a0a0b", letterSpacing: "-0.02em", marginBottom: "6px" }}>
                     {selected.title}
                   </h3>
-                  <p className="text-slate-400" style={{ fontSize: "14px" }}>{selected.subtitle}</p>
+                  <p className="font-mono" style={{ fontSize: "12px", color: "#a1a1aa" }}>{selected.subtitle}</p>
                 </div>
                 <div className="sm:text-right flex-shrink-0">
-                  <div className="text-blue-600 font-medium" style={{ fontSize: "13px" }}>{selected.role}</div>
-                  <div className="text-slate-400" style={{ fontSize: "12px", marginTop: "4px" }}>{selected.period}</div>
+                  <div className="font-mono" style={{ fontSize: "12px", color: "#4f7cff" }}>{selected.role}</div>
+                  <div className="font-mono" style={{ fontSize: "11px", color: "#a1a1aa", marginTop: "4px" }}>{selected.period}</div>
                 </div>
               </div>
-              <p className="text-slate-500" style={{ fontSize: "14px", lineHeight: 1.75, marginBottom: "20px" }}>
+              <p style={{ fontSize: "14px", lineHeight: 1.75, color: "#71717a", marginBottom: "20px" }}>
                 {selected.description}
               </p>
               <div className="flex flex-wrap" style={{ gap: "6px" }}>
                 {selected.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="bg-blue-50 border border-blue-100 text-blue-600 font-medium rounded-md"
-                    style={{ fontSize: "11px", padding: "4px 10px" }}
+                    className="font-mono"
+                    style={{
+                      fontSize: "11px",
+                      padding: "4px 10px",
+                      borderRadius: "6px",
+                      background: "#f4f4f5",
+                      border: "1px solid #e4e4e7",
+                      color: "#52525b",
+                    }}
                   >
                     {tag}
                   </span>

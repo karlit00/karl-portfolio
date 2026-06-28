@@ -5,173 +5,232 @@ export default function Hero() {
     <section
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden"
-      style={{ background: "var(--background)" }}
+      style={{ background: "#fafafa" }}
     >
-      {/* Blobs */}
+      {/* Loads the display font used for the name in the headline */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap');
+      `}</style>
+
+      {/* Faint dot-grid texture — tech signal, kept extremely subtle */}
       <div
-        className="absolute -top-40 -right-36 w-[280px] sm:w-[420px] md:w-[560px] h-[280px] sm:h-[420px] md:h-[560px] rounded-full pointer-events-none"
-        style={{ background: "rgba(37,99,235,0.06)" }}
-      />
-      <div
-        className="absolute -bottom-28 -left-24 w-[200px] sm:w-[280px] md:w-[360px] h-[200px] sm:h-[280px] md:h-[360px] rounded-full pointer-events-none"
-        style={{ background: "rgba(37,99,235,0.04)" }}
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, #e4e4e7 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+          opacity: 0.6,
+        }}
       />
 
-      {/* Inner container — padding via inline style to avoid global CSS conflicts */}
       <div
-        className="relative z-10 grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] items-center w-full"
+        className="relative z-10 grid grid-cols-1 md:grid-cols-[1fr_auto] items-center w-full"
         style={{
           maxWidth: "1280px",
           margin: "0 auto",
           padding: "80px 48px",
-          gap: "80px",
+          gap: "56px",
         }}
       >
         {/* Left content */}
-        <div className="order-2 md:order-1 text-center md:text-left" style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
 
-          {/* Badge */}
-          <div
-            className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-xs font-semibold tracking-[0.08em] uppercase rounded-full border border-blue-200"
-            style={{ padding: "8px 16px", marginBottom: "32px" }}
+          {/* Label — quiet, no syntax-highlight colors, just sets context */}
+          <p
+            className="font-mono uppercase"
+            style={{
+              fontSize: "12px",
+              letterSpacing: "0.08em",
+              color: "#a1a1aa",
+              marginBottom: "18px",
+            }}
           >
-            <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse flex-shrink-0" />
-            Available for work
-          </div>
+            Fullstack developer · available for work
+          </p>
 
-          {/* Heading */}
+          {/* Heading — one clear color statement: name in full black, role in gray, single blue word as the one accent hit */}
           <h1
             className="font-bold"
             style={{
-              fontSize: "clamp(32px, 5.5vw, 58px)",
+              fontSize: "clamp(34px, 5vw, 56px)",
               lineHeight: 1.1,
               letterSpacing: "-0.03em",
-              color: "var(--black)",
-              marginBottom: "28px",
+              color: "#0a0a0b",
+              marginBottom: "20px",
             }}
           >
-            Hi! This is{" "}
-            <span className="gradient-text">Karl Gabutero</span>,
+            <span style={{ 
+  fontFamily: "'Space Grotesk', sans-serif",
+  fontSize: "5.5rem"  // 40px if root is 16px
+}}>
+  KARL GABUTERO
+</span>
             <br />
-            a Fullstack Website
-            <br />
-            and Mobile Developer.
+            <span style={{ color: "#71717a" }}>
+              builds <span style={{ color: "#4f7cff" }}>your vision</span> for web
+              and mobile apps.
+            </span>
           </h1>
 
-          {/* Subtext */}
+          {/* Subtext — clearly secondary: smaller, lighter, tighter max-width */}
           <p
-            className="text-slate-500"
             style={{
-              fontSize: "17px",
-              lineHeight: 1.8,
-              maxWidth: "420px",
-              marginBottom: "36px",
+              fontSize: "15px",
+              lineHeight: 1.7,
+              color: "#a1a1aa",
+              maxWidth: "400px",
+              marginBottom: "32px",
             }}
           >
-            Crafting{" "}
-            <strong style={{ color: "var(--text)", fontWeight: 500 }}>clean, performant apps</strong>
-            {" "}across web and mobile — from API design to pixel-perfect UIs.
+            From API design to pixel-perfect interfaces — I focus on clean
+            architecture and code that holds up once it ships.
           </p>
 
-          {/* Stack chips */}
-          <div
-            className="flex flex-wrap justify-start"
-            style={{ gap: "8px", marginBottom: "36px" }}
-          >
-            {["React", "React Native", "Node.js", "Tailwind CSS", "MongoDB", "ExpressJS"].map((tech) => (
-              <span
-                key={tech}
-                className="bg-white border border-slate-200 text-slate-500 font-medium rounded-md"
-                style={{ fontSize: "12px", padding: "7px 14px" }}
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-
-          {/* CTAs */}
-          <div
-            className="flex flex-wrap"
-            style={{ gap: "12px", marginBottom: "52px" }}
-          >
+          {/* CTAs — primary visually heavier, secondary recedes */}
+          <div className="flex flex-wrap" style={{ gap: "12px", marginBottom: "32px" }}>
             <a
               href="#projects"
-              className="inline-flex items-center text-white font-medium rounded-[10px] transition-all hover:-translate-y-px active:translate-y-0"
+              className="inline-flex items-center font-medium transition-all hover:-translate-y-px active:translate-y-0"
               style={{
-                background: "var(--primary)",
-                padding: "14px 28px",
-                fontSize: "14px",
-                boxShadow: "0 4px 20px rgba(37,99,235,0.3)",
+                background: "#0a0a0b",
+                color: "#fafafa",
+                padding: "14px 38px",
+                fontSize: "17px",
+                borderRadius: "8px",
                 textDecoration: "none",
               }}
             >
-              View Projects
+              View projects
             </a>
-
             <a
               href="#contact"
-              className="inline-flex items-center font-medium rounded-[10px] border border-slate-200 bg-white transition-all hover:border-blue-500 hover:text-blue-600 hover:-translate-y-px active:translate-y-0"
+              className="inline-flex items-center font-medium transition-all hover:border-[#4f7cff] hover:text-[#4f7cff] active:translate-y-0"
               style={{
-                color: "var(--black)",
-                padding: "14px 28px",
-                fontSize: "14px",
+                background: "transparent",
+                color: "#71717a",
+                padding: "14px 38px",
+                fontSize: "17px",
+                borderRadius: "8px",
+                border: "1px solid #e4e4e7",
                 textDecoration: "none",
               }}
             >
-              Contact Me
+              Contact me
             </a>
           </div>
 
-          {/* Stats */}
+          {/* Stack — demoted to a single quiet line, reference info rather than a featured row of chips */}
+          <p
+            className="font-mono"
+            style={{
+              fontSize: "13px",
+              color: "#52525B",
+              marginBottom: "32px",
+              maxWidth: "440px",
+              lineHeight: 1.6,
+            }}
+          >
+            React · React Native · Node.js · Tailwind · MongoDB · Express
+          </p>
+
+          {/* Stats — grouped tighter together with a clear top divider, single blue accent kept consistent with the photo's bracket color */}
           <div
-            className="flex border-t border-slate-200 w-full"
-            style={{ paddingTop: "36px" }}
+            className="flex w-full"
+            style={{ borderTop: "1px solid #e4e4e7", paddingTop: "24px" }}
           >
             {[
-              { num: "5+", label: "Years experience" },
-              { num: "12+", label: "Projects shipped" },
-              { num: "∞", label: "Coffee consumed" },
-            ].map(({ num, label }, i) => (
+              { num: "2+", label: "years experience", accent: true },
+              { num: "5+", label: "projects shipped", accent: false },
+              { num: "6", label: "coffee a day", accent: false },
+            ].map(({ num, label, accent }, i) => (
               <div
                 key={label}
                 style={{
-                  flex: 1,
-                  paddingRight: "28px",
-                  paddingLeft: i > 0 ? "28px" : 0,
-                  borderLeft: i > 0 ? "1px solid #e2e8f0" : "none",
+                  paddingRight: "24px",
+                  paddingLeft: i > 0 ? "24px" : 0,
+                  borderLeft: i > 0 ? "1px solid #e4e4e7" : "none",
                 }}
               >
                 <div
-                  className="font-bold"
+                  className="font-bold font-mono"
                   style={{
-                    fontSize: "clamp(22px, 3vw, 28px)",
-                    letterSpacing: "-0.03em",
-                    color: "var(--black)",
-                    marginBottom: "6px",
+                    fontSize: "22px",
+                    color: accent ? "#4f7cff" : "#0a0a0b",
+                    marginBottom: "4px",
                   }}
                 >
                   {num}
                 </div>
-                <div style={{ fontSize: "12px", color: "#94a3b8" }}>{label}</div>
+                <div style={{ fontSize: "11px", color: "#a1a1aa" }}>{label}</div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Right — image */}
-        <div className="order-1 md:order-2 relative flex items-center justify-center">
-          <div className="absolute rounded-full border border-dashed border-blue-200" style={{ inset: "-20px" }} />
-          <div className="absolute rounded-full border border-dashed border-blue-100 opacity-45" style={{ inset: "-40px" }} />
+        {/* Right — photo, sharp-edged with corner bracket motif instead of circle+dashed rings */}
+        <div className="relative flex items-center justify-center">
+          <div
+            className="relative"
+            style={{ width: "300px" }}
+          >
+            <img
+              src={heropic}
+              alt="Karl Gabutero"
+              className="w-full object-cover"
+              style={{
+                aspectRatio: "4 / 5",
+                borderRadius: "10px",
+                border: "1px solid #e4e4e7",
+              }}
+            />
 
-          <img
-            src={heropic}
-            alt="Karl Gabutero"
-            className="w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] md:w-[340px] md:h-[340px] lg:w-[390px] lg:h-[390px] rounded-full object-cover"
-            style={{
-              border: "5px solid white",
-              boxShadow: "0 20px 56px rgba(37,99,235,0.18)",
-            }}
-          />
+            {/* Corner brackets — code-editor selection motif, the signature detail */}
+            {[
+              { top: "-9px", left: "-9px", borderWidth: "2px 0 0 2px" },
+              { top: "-9px", right: "-9px", borderWidth: "2px 2px 0 0" },
+              { bottom: "-9px", left: "-9px", borderWidth: "0 0 2px 2px" },
+              { bottom: "-9px", right: "-9px", borderWidth: "0 2px 2px 0" },
+            ].map((pos, i) => (
+              <span
+                key={i}
+                className="absolute"
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  borderColor: "#4f7cff",
+                  borderStyle: "solid",
+                  ...pos,
+                }}
+              />
+            ))}
+
+            {/* Status tag — terminal style, anchored bottom-left */}
+            <div
+              className="absolute font-mono"
+              style={{
+                bottom: "16px",
+                left: "16px",
+                fontSize: "11px",
+                color: "#fafafa",
+                background: "rgba(10,10,11,0.85)",
+                padding: "6px 10px",
+                borderRadius: "6px",
+                display: "flex",
+                alignItems: "center",
+                gap: "6px",
+              }}
+            >
+              <span
+                style={{
+                  width: "6px",
+                  height: "6px",
+                  borderRadius: "50%",
+                  background: "#22c55e",
+                  display: "inline-block",
+                }}
+              />
+              online
+            </div>
+          </div>
         </div>
       </div>
     </section>

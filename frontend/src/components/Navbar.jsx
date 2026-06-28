@@ -7,8 +7,9 @@ export default function Navbar() {
   const links = [
     { name: "Home", href: "#hero" },
     { name: "About", href: "#about" },
-    { name: "Stack", href: "#stack" },
+    { name: "Stack", href: "#techstack" },
     { name: "Projects", href: "#projects" },
+    { name: "Services", href: "#services" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -34,35 +35,49 @@ export default function Navbar() {
         onMouseEnter={() => setExpanded(true)}
         onMouseLeave={() => setExpanded(false)}
         onClick={handleToggle}
-        className="group relative h-12 sm:h-14 bg-white/90 backdrop-blur-xl border border-slate-200 rounded-full shadow-lg overflow-hidden cursor-pointer transition-all duration-500 ease-in-out hover:shadow-xl hover:border-blue-200 max-w-full"
+        className="group relative h-12 sm:h-14 backdrop-blur-xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out max-w-full"
         style={{
           width: expanded ? "min(780px, 92vw)" : "52px",
-          boxShadow: expanded
-            ? "0 10px 30px rgba(37,99,235,0.12)"
-            : "0 4px 16px rgba(37,99,235,0.10)",
+          background: "rgba(250,250,250,0.9)",
+          border: "1px solid #e4e4e7",
+          borderRadius: "10px",
         }}
       >
-        {/* Center Dot — rest state */}
+        {/* Rest state — corner brackets around a single blue dot, same motif used across the site */}
         <div
           className="absolute inset-0 flex items-center justify-center pointer-events-none"
           style={{ opacity: expanded ? 0 : 1, transition: "opacity 150ms ease" }}
         >
-          <div className="relative w-7 h-7 flex items-center justify-center">
+          <div className="relative w-6 h-6 flex items-center justify-center">
+            {[
+              { top: "-2px", left: "-2px", borderWidth: "1.5px 0 0 1.5px" },
+              { top: "-2px", right: "-2px", borderWidth: "1.5px 1.5px 0 0" },
+              { bottom: "-2px", left: "-2px", borderWidth: "0 0 1.5px 1.5px" },
+              { bottom: "-2px", right: "-2px", borderWidth: "0 1.5px 1.5px 0" },
+            ].map((pos, i) => (
+              <span
+                key={i}
+                className="absolute"
+                style={{
+                  width: "8px",
+                  height: "8px",
+                  borderColor: "#d4d4d8",
+                  borderStyle: "solid",
+                  transition: "border-color 200ms ease",
+                  ...pos,
+                }}
+              />
+            ))}
             <div
-              className="absolute inset-0 rounded-full border border-blue-300"
-              style={{ borderStyle: "dashed", animation: "navbar-spin 6s linear infinite", opacity: 0.6 }}
+              className="relative w-2 h-2 rounded-full transition-transform duration-300 group-hover:scale-125"
+              style={{ background: "#4f7cff" }}
             />
-            <div
-              className="absolute inset-0 rounded-full bg-blue-400"
-              style={{ animation: "navbar-breathe 2.4s ease-in-out infinite" }}
-            />
-            <div className="relative w-3 h-3 rounded-full bg-blue-600 transition-transform duration-300 group-hover:scale-125" />
           </div>
         </div>
 
-        {/* Navigation Links — expanded state */}
+        {/* Navigation links — expanded state */}
         <div
-          className="h-full flex items-center justify-center flex-nowrap overflow-x-auto"
+          className="h-full flex items-center justify-center flex-nowrap overflow-x-auto font-mono"
           style={{
             opacity: expanded ? 1 : 0,
             transition: "opacity 250ms ease",
@@ -76,31 +91,27 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               onClick={() => setExpanded(false)}
-              className="rounded-full text-xs sm:text-sm font-medium text-slate-600 whitespace-nowrap hover:text-blue-600 hover:bg-blue-50 transition-all duration-200"
-              style={{ padding: "8px 18px" }}
+              className="whitespace-nowrap transition-colors"
+              style={{
+                fontSize: "13px",
+                color: "#71717a",
+                padding: "8px 18px",
+                borderRadius: "6px",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = "#4f7cff";
+                e.currentTarget.style.background = "#f4f4f5";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = "#71717a";
+                e.currentTarget.style.background = "transparent";
+              }}
             >
               {link.name}
             </a>
           ))}
         </div>
       </nav>
-
-      <style>{`
-        @keyframes navbar-breathe {
-          0%, 100% { transform: scale(1); opacity: 0.35; }
-          50% { transform: scale(1.8); opacity: 0; }
-        }
-        @keyframes navbar-spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .group [style*="navbar-breathe"],
-          .group [style*="navbar-spin"] {
-            animation: none !important;
-          }
-        }
-      `}</style>
     </div>
   );
 }
