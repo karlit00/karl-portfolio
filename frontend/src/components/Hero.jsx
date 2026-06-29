@@ -185,8 +185,8 @@ export default function Hero() {
               animation: "heroFadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.42s both",
             }}
           >
-            From API design to pixel-perfect interfaces — I focus on clean
-            architecture and code that holds up once it ships.
+            With over 2 years of Website and Mobile Application development, focusing now on
+            AI implementations and technologies for most of my work.
           </p>
 
           {/* CTAs */}
@@ -257,7 +257,7 @@ export default function Hero() {
             {[
               { num: "2+", label: "years experience", accent: true },
               { num: "5+", label: "projects shipped", accent: false },
-              { num: "6", label: "coffee a day", accent: false },
+              { num: "6", label: "coffees a day", accent: false },
             ].map(({ num, label, accent }, i) => (
               <div
                 key={label}

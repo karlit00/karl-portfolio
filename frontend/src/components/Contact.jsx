@@ -67,7 +67,7 @@ export default function Contact() {
         {/* Section label */}
         <p
           className="font-mono uppercase"
-          style={{ fontSize: "12px", letterSpacing: "0.08em", color: "#a1a1aa", marginBottom: "24px" }}
+          style={{ fontSize: "15px", letterSpacing: "0.08em", color: "#a1a1aa", marginBottom: "18px" }}
         >
           Contact
         </p>

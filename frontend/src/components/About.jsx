@@ -40,12 +40,59 @@ export default function About() {
       className="relative overflow-hidden"
       style={{ background: "#fafafa", padding: "clamp(64px, 12vw, 112px) clamp(20px, 5vw, 48px)" }}
     >
-      {/* Loads the display font used for the heading accent — same as Hero */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap');
+
+        .exp-card {
+          background: #ffffff;
+          border: 1px solid #e4e4e7;
+          border-radius: 10px;
+          padding: clamp(20px, 4vw, 28px);
+          gap: 20px;
+          min-width: 0;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          overflow: hidden;
+          cursor: default;
+          transition:
+            transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+            box-shadow 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+            border-color 0.22s ease;
+        }
+
+        .exp-card::before {
+          content: '';
+          position: absolute;
+          inset: 0 auto 0 0;
+          width: 3px;
+          background: #4f7cff;
+          border-radius: 10px 0 0 10px;
+          transform: scaleY(0);
+          transform-origin: bottom;
+          transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .exp-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 32px -8px rgba(79, 124, 255, 0.14), 0 2px 8px -2px rgba(0,0,0,0.06);
+          border-color: #c7d4ff;
+        }
+
+        .exp-card:hover::before {
+          transform: scaleY(1);
+          transform-origin: top;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .exp-card,
+          .exp-card::before {
+            transition: none;
+          }
+        }
       `}</style>
 
-      {/* Dot-grid texture, consistent with Hero */}
+      {/* Dot-grid texture */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -57,11 +104,10 @@ export default function About() {
 
       <div className="relative z-10" style={{ maxWidth: "1280px", margin: "0 auto" }}>
 
-        {/* Section label — quiet mono, no pill, matches Hero's label treatment */}
         <p
           className="font-mono uppercase"
           style={{
-            fontSize: "12px",
+            fontSize: "14px",
             letterSpacing: "0.08em",
             color: "#a1a1aa",
             marginBottom: "18px",
@@ -70,7 +116,6 @@ export default function About() {
           About me
         </p>
 
-        {/* Heading — Space Grotesk on the key phrase instead of a gradient span */}
         <h2
           className="font-bold"
           style={{
@@ -87,7 +132,6 @@ export default function About() {
           </span>
         </h2>
 
-        {/* Bio */}
         <p
           style={{
             fontSize: "15px",
@@ -104,7 +148,7 @@ export default function About() {
           digital solutions that are both performant and beautiful.
         </p>
 
-        {/* Experience — bordered gray cards, blue used once per card for the role */}
+        {/* Experience */}
         <div style={{ marginBottom: "clamp(56px, 9vw, 80px)" }}>
           <p
             className="font-mono uppercase"
@@ -114,18 +158,7 @@ export default function About() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "24px" }}>
             {experiences.map(({ company, role, location, period, desc }, i) => (
-              <div
-                key={i}
-                className="flex flex-col"
-                style={{
-                  background: "#ffffff",
-                  border: "1px solid #e4e4e7",
-                  borderRadius: "10px",
-                  padding: "clamp(20px, 4vw, 28px)",
-                  gap: "20px",
-                  minWidth: 0,
-                }}
-              >
+              <div key={i} className="exp-card">
                 <div>
                   <div className="font-semibold" style={{ fontSize: "14px", color: "#0a0a0b", marginBottom: "6px" }}>
                     {company}
@@ -150,12 +183,8 @@ export default function About() {
           </div>
         </div>
 
-        {/* Expertise + Education — same quiet chip treatment as Hero's stack line, demoted to gray */}
-        <div
-          className="grid grid-cols-1 md:grid-cols-2"
-          style={{ gap: "clamp(40px, 8vw, 64px)" }}
-        >
-          {/* Expertise */}
+        {/* Expertise + Education */}
+        <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "clamp(40px, 8vw, 64px)" }}>
           <div style={{ minWidth: 0 }}>
             <p
               className="font-mono uppercase"
@@ -183,7 +212,6 @@ export default function About() {
             </div>
           </div>
 
-          {/* Education — clean bordered card with the corner-bracket signature, no gradient */}
           <div style={{ minWidth: 0 }}>
             <p
               className="font-mono uppercase"

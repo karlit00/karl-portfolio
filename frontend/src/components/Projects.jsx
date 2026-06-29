@@ -111,7 +111,7 @@ export default function Projects() {
         <p
           className="font-mono uppercase"
           style={{
-            fontSize: "12px",
+            fontSize: "14px",
             letterSpacing: "0.08em",
             color: "#a1a1aa",
             marginBottom: "32px",
