@@ -5,7 +5,7 @@ export default function Hero() {
     <section
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden"
-      style={{ background: "#fafafa" }}
+      style={{ background: "var(--bg)" }}
     >
       {/* Loads the display font + defines the entrance animation keyframes */}
       <style>{`
@@ -37,7 +37,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, #e4e4e7 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, var(--border) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
           opacity: 0.6,
         }}
@@ -68,7 +68,7 @@ export default function Hero() {
               style={{
                 aspectRatio: "4 / 5",
                 borderRadius: "10px",
-                border: "1px solid #e4e4e7",
+                border: "1px solid var(--border)",
               }}
             />
 
@@ -133,12 +133,12 @@ export default function Hero() {
             style={{
               fontSize: "14px",
               letterSpacing: "0.08em",
-              color: "#a1a1aa",
+              color: "var(--text-3)",
               marginBottom: "18px",
               animation: "heroFadeIn 0.6s ease-out 0.05s both",
             }}
           >
-            Fullstack developer · available for work
+            Fullstack developer · Data analyst · IT support
           </p>
 
           {/* Heading */}
@@ -148,7 +148,7 @@ export default function Hero() {
               fontSize: "clamp(22px, 3.6vw, 38px)",
               lineHeight: 1.15,
               letterSpacing: "-0.03em",
-              color: "#0a0a0b",
+              color: "var(--text)",
               marginBottom: "20px",
             }}
           >
@@ -164,7 +164,7 @@ export default function Hero() {
             </span>
             <br />
             <span style={{
-              color: "#71717a",
+              color: "var(--text-2)",
               display: "inline-block",
               animation: "heroFadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s both",
             }}>
@@ -178,15 +178,15 @@ export default function Hero() {
             style={{
               fontSize: "15px",
               lineHeight: 1.7,
-              color: "#a1a1aa",
+              color: "var(--text-3)",
               maxWidth: "400px",
               width: "100%",
               marginBottom: "32px",
               animation: "heroFadeUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.42s both",
             }}
           >
-            With over 2 years of Website and Mobile Application development, focusing now on
-            AI implementations and technologies for most of my work.
+            Cum laude IT graduate with hands-on experience shipping full-stack platforms for clients in
+            the US and the Philippines, now focused on bringing AI into the products I build.
           </p>
 
           {/* CTAs */}
@@ -195,8 +195,8 @@ export default function Hero() {
               href="#projects"
               className="inline-flex items-center font-medium transition-all hover:-translate-y-px active:translate-y-0"
               style={{
-                background: "#0a0a0b",
-                color: "#fafafa",
+                background: "var(--text)",
+                color: "var(--bg)",
                 padding: "14px clamp(24px, 5vw, 38px)",
                 fontSize: "16px",
                 borderRadius: "8px",
@@ -213,11 +213,11 @@ export default function Hero() {
               className="inline-flex items-center font-medium transition-all hover:border-[#4f7cff] hover:text-[#4f7cff] active:translate-y-0"
               style={{
                 background: "transparent",
-                color: "#71717a",
+                color: "var(--text-2)",
                 padding: "14px clamp(24px, 5vw, 38px)",
                 fontSize: "16px",
                 borderRadius: "8px",
-                border: "1px solid #e4e4e7",
+                border: "1px solid var(--border)",
                 textDecoration: "none",
                 whiteSpace: "nowrap",
                 animation: "heroFadeUp 0.6s cubic-bezier(0.16,1,0.3,1) 0.62s both",
@@ -232,7 +232,7 @@ export default function Hero() {
             className="font-mono"
             style={{
               fontSize: "13px",
-              color: "#52525B",
+              color: "var(--text-4)",
               marginBottom: "32px",
               maxWidth: "440px",
               width: "100%",
@@ -240,14 +240,14 @@ export default function Hero() {
               animation: "heroFadeIn 0.6s ease-out 0.72s both",
             }}
           >
-            React · React Native · Node.js · Tailwind · MongoDB · Express
+            React · Node.js · Laravel · Tailwind · MongoDB · MySQL · Groq AI
           </p>
 
           {/* Stats */}
           <div
             className="flex w-full"
             style={{
-              borderTop: "1px solid #e4e4e7",
+              borderTop: "1px solid var(--border)",
               paddingTop: "24px",
               flexWrap: "wrap",
               rowGap: "12px",
@@ -264,7 +264,7 @@ export default function Hero() {
                 style={{
                   paddingRight: "clamp(12px, 4vw, 24px)",
                   paddingLeft: i > 0 ? "clamp(12px, 4vw, 24px)" : 0,
-                  borderLeft: i > 0 ? "1px solid #e4e4e7" : "none",
+                  borderLeft: i > 0 ? "1px solid var(--border)" : "none",
                   minWidth: 0,
                   flex: "1 1 auto",
                 }}
@@ -273,13 +273,13 @@ export default function Hero() {
                   className="font-bold font-mono"
                   style={{
                     fontSize: "clamp(18px, 3vw, 22px)",
-                    color: accent ? "#4f7cff" : "#0a0a0b",
+                    color: accent ? "#4f7cff" : "var(--text)",
                     marginBottom: "4px",
                   }}
                 >
                   {num}
                 </div>
-                <div style={{ fontSize: "11px", color: "#a1a1aa" }}>{label}</div>
+                <div style={{ fontSize: "11px", color: "var(--text-3)" }}>{label}</div>
               </div>
             ))}
           </div>

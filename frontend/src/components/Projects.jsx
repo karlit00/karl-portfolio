@@ -31,7 +31,7 @@ const projects = [
     cover: ht1,
     screenshots: [ht1, ht2, ht3, ht4, ht5, ht6, ht7, ht8],
     description:
-      "A full-stack web and mobile application designed to optimize stray animal reporting and management for Las Piñas City LGU. Features an admin dashboard with descriptive and prescriptive analytics for city-wide decision-making.",
+      "Thesis project: a web and mobile app that streamlines stray animal reporting and management for the Las Piñas City Veterinary Office. Includes an analytics dashboard with descriptive and prescriptive insights, plus authentication, role-based access control, and data validation — built and tested iteratively with government stakeholders.",
     role: "System Analyst & Fullstack Developer",
     period: "March 2025 – October 2025",
   },
@@ -42,9 +42,9 @@ const projects = [
     cover: pi1,
     screenshots: [pi1, pi2, pi3, pi4, pi5, pi6, pi7, pi8, pi9],
     description:
-      "A modern, responsive corporate website for Paladin Insurance under Wilshire Financial Network. Includes contact forms, quotation request management, dynamic content administration, and a secure admin dashboard.",
+      "A modern, responsive corporate website for Paladin Insurance under Wilshire Financial Network — one of three platforms I maintained there alongside Relstone Learn and Relstone NMLS. Includes contact forms, quotation request management, dynamic content administration, and a secure admin dashboard.",
     role: "Fullstack Web Developer",
-    period: "May 2026 – June 2026",
+    period: "May 2026 – October 2026",
   },
   {
     title: "Tinkventory",
@@ -93,13 +93,13 @@ export default function Projects() {
     <section
       id="projects"
       className="relative overflow-hidden"
-      style={{ background: "#fafafa", padding: "clamp(64px, 12vw, 112px) clamp(20px, 5vw, 48px)" }}
+      style={{ background: "var(--bg)", padding: "clamp(64px, 12vw, 112px) clamp(20px, 5vw, 48px)" }}
     >
       {/* Dot-grid texture, consistent with Hero, About, and TechStack */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, #e4e4e7 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, var(--border) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
           opacity: 0.6,
         }}
@@ -113,7 +113,7 @@ export default function Projects() {
           style={{
             fontSize: "14px",
             letterSpacing: "0.08em",
-            color: "#a1a1aa",
+            color: "var(--text-3)",
             marginBottom: "32px",
           }}
         >
@@ -131,8 +131,8 @@ export default function Projects() {
               onClick={() => openModal(project)}
               className="group cursor-pointer overflow-hidden transition-transform hover:-translate-y-1"
               style={{
-                background: "#ffffff",
-                border: "1px solid #e4e4e7",
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
                 borderRadius: "10px",
                 minWidth: 0,
               }}
@@ -171,8 +171,8 @@ export default function Projects() {
                     className="font-mono flex items-center gap-1.5"
                     style={{
                       fontSize: "12px",
-                      color: "#0a0a0b",
-                      background: "#ffffff",
+                      color: "var(--text)",
+                      background: "var(--surface)",
                       padding: "8px 16px",
                       borderRadius: "6px",
                     }}
@@ -188,12 +188,12 @@ export default function Projects() {
               {/* Card body */}
               <div style={{ padding: "clamp(18px, 4vw, 24px)" }}>
                 <div style={{ marginBottom: "12px" }}>
-                  <h3 className="font-semibold" style={{ fontSize: "16px", color: "#0a0a0b", marginBottom: "4px" }}>
+                  <h3 className="font-semibold" style={{ fontSize: "16px", color: "var(--text)", marginBottom: "4px" }}>
                     {project.title}
                   </h3>
-                  <p className="font-mono" style={{ fontSize: "11px", color: "#a1a1aa" }}>{project.subtitle}</p>
+                  <p className="font-mono" style={{ fontSize: "11px", color: "var(--text-3)" }}>{project.subtitle}</p>
                 </div>
-                <p className="line-clamp-2" style={{ fontSize: "14px", lineHeight: 1.7, color: "#71717a", marginBottom: "20px" }}>
+                <p className="line-clamp-2" style={{ fontSize: "14px", lineHeight: 1.7, color: "var(--text-2)", marginBottom: "20px" }}>
                   {project.description}
                 </p>
                 <div className="flex flex-wrap" style={{ gap: "6px" }}>
@@ -205,9 +205,9 @@ export default function Projects() {
                         fontSize: "11px",
                         padding: "4px 10px",
                         borderRadius: "6px",
-                        background: "#f4f4f5",
-                        border: "1px solid #e4e4e7",
-                        color: "#52525b",
+                        background: "var(--surface-2)",
+                        border: "1px solid var(--border)",
+                        color: "var(--text-4)",
                       }}
                     >
                       {tag}
@@ -230,8 +230,8 @@ export default function Projects() {
           <div
             className="relative overflow-y-auto w-full"
             style={{
-              background: "#ffffff",
-              border: "1px solid #e4e4e7",
+              background: "var(--surface)",
+              border: "1px solid var(--border)",
               borderRadius: "16px",
               maxHeight: "92vh",
               maxWidth: "896px",
@@ -247,10 +247,10 @@ export default function Projects() {
                 right: "16px",
                 width: "32px",
                 height: "32px",
-                background: "#ffffff",
-                border: "1px solid #e4e4e7",
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
                 borderRadius: "8px",
-                color: "#a1a1aa",
+                color: "var(--text-3)",
               }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -259,7 +259,7 @@ export default function Projects() {
             </button>
 
             {/* Screenshot viewer */}
-            <div className="relative" style={{ height: "clamp(240px, 55vw, 420px)", background: "#f4f4f5" }}>
+            <div className="relative" style={{ height: "clamp(240px, 55vw, 420px)", background: "var(--surface-2)" }}>
               <img
                 src={selected.screenshots[currentImg]}
                 alt={`${selected.title} screenshot ${currentImg + 1}`}
@@ -275,10 +275,10 @@ export default function Projects() {
                       left: "clamp(8px, 2vw, 16px)",
                       width: "clamp(32px, 6vw, 40px)",
                       height: "clamp(32px, 6vw, 40px)",
-                      background: "#ffffff",
-                      border: "1px solid #e4e4e7",
+                      background: "var(--surface)",
+                      border: "1px solid var(--border)",
                       borderRadius: "8px",
-                      color: "#0a0a0b",
+                      color: "var(--text)",
                     }}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -292,10 +292,10 @@ export default function Projects() {
                       right: "clamp(8px, 2vw, 16px)",
                       width: "clamp(32px, 6vw, 40px)",
                       height: "clamp(32px, 6vw, 40px)",
-                      background: "#ffffff",
-                      border: "1px solid #e4e4e7",
+                      background: "var(--surface)",
+                      border: "1px solid var(--border)",
                       borderRadius: "8px",
-                      color: "#0a0a0b",
+                      color: "var(--text)",
                     }}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -343,17 +343,17 @@ export default function Projects() {
             <div style={{ padding: "clamp(20px, 5vw, 32px)" }}>
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between" style={{ gap: "16px", marginBottom: "16px" }}>
                 <div style={{ minWidth: 0 }}>
-                  <h3 className="font-bold" style={{ fontSize: "22px", color: "#0a0a0b", letterSpacing: "-0.02em", marginBottom: "6px" }}>
+                  <h3 className="font-bold" style={{ fontSize: "22px", color: "var(--text)", letterSpacing: "-0.02em", marginBottom: "6px" }}>
                     {selected.title}
                   </h3>
-                  <p className="font-mono" style={{ fontSize: "12px", color: "#a1a1aa" }}>{selected.subtitle}</p>
+                  <p className="font-mono" style={{ fontSize: "12px", color: "var(--text-3)" }}>{selected.subtitle}</p>
                 </div>
                 <div className="sm:text-right flex-shrink-0">
                   <div className="font-mono" style={{ fontSize: "12px", color: "#4f7cff" }}>{selected.role}</div>
-                  <div className="font-mono" style={{ fontSize: "11px", color: "#a1a1aa", marginTop: "4px" }}>{selected.period}</div>
+                  <div className="font-mono" style={{ fontSize: "11px", color: "var(--text-3)", marginTop: "4px" }}>{selected.period}</div>
                 </div>
               </div>
-              <p style={{ fontSize: "14px", lineHeight: 1.75, color: "#71717a", marginBottom: "20px" }}>
+              <p style={{ fontSize: "14px", lineHeight: 1.75, color: "var(--text-2)", marginBottom: "20px" }}>
                 {selected.description}
               </p>
               <div className="flex flex-wrap" style={{ gap: "6px" }}>
@@ -365,9 +365,9 @@ export default function Projects() {
                       fontSize: "11px",
                       padding: "4px 10px",
                       borderRadius: "6px",
-                      background: "#f4f4f5",
-                      border: "1px solid #e4e4e7",
-                      color: "#52525b",
+                      background: "var(--surface-2)",
+                      border: "1px solid var(--border)",
+                      color: "var(--text-4)",
                     }}
                   >
                     {tag}

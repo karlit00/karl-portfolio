@@ -43,8 +43,8 @@ export default function Footer() {
     <footer
       className="relative overflow-hidden"
       style={{
-        background: "#fafafa",
-        borderTop: "1px solid #e4e4e7",
+        background: "var(--bg)",
+        borderTop: "1px solid var(--border)",
         paddingTop: "80px",
         paddingBottom: "40px",
         paddingLeft: "48px",
@@ -55,7 +55,7 @@ export default function Footer() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, #e4e4e7 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, var(--border) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
           opacity: 0.6,
         }}
@@ -73,21 +73,21 @@ export default function Footer() {
           <div style={{ maxWidth: "320px" }}>
             <div
               className="font-bold"
-              style={{ fontSize: "20px", letterSpacing: "-0.02em", color: "#0a0a0b", marginBottom: "14px" }}
+              style={{ fontSize: "20px", letterSpacing: "-0.02em", color: "var(--text)", marginBottom: "14px" }}
             >
               <span style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Karl Gabutero</span>
             </div>
-            <p style={{ fontSize: "14px", lineHeight: 1.8, color: "#71717a" }}>
+            <p style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--text-2)" }}>
               Fullstack web and mobile developer, crafting clean, performant apps from API design to pixel-perfect UIs.
             </p>
             <div
               className="inline-flex items-center font-mono"
               style={{
-                background: "#f4f4f5",
-                border: "1px solid #e4e4e7",
+                background: "var(--surface-2)",
+                border: "1px solid var(--border)",
                 borderRadius: "6px",
                 fontSize: "11px",
-                color: "#71717a",
+                color: "var(--text-2)",
                 padding: "8px 14px",
                 marginTop: "24px",
                 gap: "8px",
@@ -102,7 +102,7 @@ export default function Footer() {
           <div>
             <p
               className="font-mono uppercase"
-              style={{ fontSize: "11px", letterSpacing: "0.08em", color: "#a1a1aa", marginBottom: "20px" }}
+              style={{ fontSize: "11px", letterSpacing: "0.08em", color: "var(--text-3)", marginBottom: "20px" }}
             >
               Navigate
             </p>
@@ -112,9 +112,9 @@ export default function Footer() {
                   <a
                     href={href}
                     className="font-medium transition-colors"
-                    style={{ fontSize: "14px", color: "#71717a", textDecoration: "none" }}
+                    style={{ fontSize: "14px", color: "var(--text-2)", textDecoration: "none" }}
                     onMouseEnter={(e) => { e.currentTarget.style.color = "#4f7cff"; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.color = "#71717a"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.color = "var(--text-2)"; }}
                   >
                     {label}
                   </a>
@@ -127,7 +127,7 @@ export default function Footer() {
           <div>
             <p
               className="font-mono uppercase"
-              style={{ fontSize: "11px", letterSpacing: "0.08em", color: "#a1a1aa", marginBottom: "20px" }}
+              style={{ fontSize: "11px", letterSpacing: "0.08em", color: "var(--text-3)", marginBottom: "20px" }}
             >
               Connect
             </p>
@@ -144,12 +144,12 @@ export default function Footer() {
                     width: "40px",
                     height: "40px",
                     borderRadius: "8px",
-                    background: "#f4f4f5",
-                    border: "1px solid #e4e4e7",
-                    color: "#52525b",
+                    background: "var(--surface-2)",
+                    border: "1px solid var(--border)",
+                    color: "var(--text-4)",
                   }}
                   onMouseEnter={(e) => { e.currentTarget.style.color = "#4f7cff"; e.currentTarget.style.borderColor = "#4f7cff"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.color = "#52525b"; e.currentTarget.style.borderColor = "#e4e4e7"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = "var(--text-4)"; e.currentTarget.style.borderColor = "var(--border)"; }}
                 >
                   {icon}
                 </a>
@@ -162,9 +162,9 @@ export default function Footer() {
         {/* Bottom bar */}
         <div
           className="flex flex-col-reverse md:flex-row items-center justify-between"
-          style={{ borderTop: "1px solid #e4e4e7", paddingTop: "32px", gap: "16px" }}
+          style={{ borderTop: "1px solid var(--border)", paddingTop: "32px", gap: "16px" }}
         >
-          <p className="font-mono" style={{ fontSize: "11px", color: "#a1a1aa" }}>
+          <p className="font-mono" style={{ fontSize: "11px", color: "var(--text-3)" }}>
             Designed &amp; built by{" "}
             <span style={{ color: "#4f7cff" }}>Karl Christian Gabutero</span>
             {" "}· {new Date().getFullYear()}
@@ -172,9 +172,9 @@ export default function Footer() {
           <a
             href="#hero"
             className="inline-flex items-center font-medium transition-colors"
-            style={{ fontSize: "12px", color: "#71717a", textDecoration: "none", gap: "6px" }}
+            style={{ fontSize: "12px", color: "var(--text-2)", textDecoration: "none", gap: "6px" }}
             onMouseEnter={(e) => { e.currentTarget.style.color = "#4f7cff"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = "#71717a"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = "var(--text-2)"; }}
           >
             Back to top
             <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

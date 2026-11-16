@@ -50,13 +50,13 @@ export default function Contact() {
     <section
       id="contact"
       className="relative overflow-hidden"
-      style={{ background: "#fafafa", padding: "clamp(64px, 12vw, 112px) clamp(20px, 5vw, 48px)" }}
+      style={{ background: "var(--bg)", padding: "clamp(64px, 12vw, 112px) clamp(20px, 5vw, 48px)" }}
     >
       {/* Dot-grid texture, consistent with the rest of the site */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, #e4e4e7 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, var(--border) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
           opacity: 0.6,
         }}
@@ -67,7 +67,7 @@ export default function Contact() {
         {/* Section label */}
         <p
           className="font-mono uppercase"
-          style={{ fontSize: "15px", letterSpacing: "0.08em", color: "#a1a1aa", marginBottom: "18px" }}
+          style={{ fontSize: "15px", letterSpacing: "0.08em", color: "var(--text-3)", marginBottom: "18px" }}
         >
           Contact
         </p>
@@ -79,7 +79,7 @@ export default function Contact() {
             fontSize: "clamp(28px, 5vw, 48px)",
             letterSpacing: "-0.03em",
             lineHeight: 1.1,
-            color: "#0a0a0b",
+            color: "var(--text)",
             marginBottom: "16px",
           }}
         >
@@ -89,21 +89,21 @@ export default function Contact() {
           </span>
         </h2>
 
-        <p style={{ fontSize: "15px", lineHeight: 1.75, color: "#71717a", maxWidth: "480px", width: "100%", marginBottom: "clamp(36px, 7vw, 56px)" }}>
+        <p style={{ fontSize: "15px", lineHeight: 1.75, color: "var(--text-2)", maxWidth: "480px", width: "100%", marginBottom: "clamp(36px, 7vw, 56px)" }}>
           I'm currently open to new opportunities — whether it's a full-time role, freelance project, or just a chat. Don't hesitate to reach out.
         </p>
 
         {/* Main card */}
         <div
           className="overflow-hidden"
-          style={{ background: "#ffffff", border: "1px solid #e4e4e7", borderRadius: "16px" }}
+          style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "16px" }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2">
 
             {/* Left panel — flat near-black, matches the site's primary CTA color instead of a blue gradient */}
             <div
               className="relative flex flex-col justify-between overflow-hidden"
-              style={{ background: "#0a0a0b", minHeight: "clamp(260px, 40vw, 360px)", padding: "clamp(28px, 6vw, 48px)" }}
+              style={{ background: "var(--panel)", boxShadow: "inset 0 0 0 1px var(--panel-border)", minHeight: "clamp(260px, 40vw, 360px)", padding: "clamp(28px, 6vw, 48px)" }}
             >
               {/* Corner brackets — same motif used throughout the site */}
               {[
@@ -113,7 +113,7 @@ export default function Contact() {
                 <span
                   key={i}
                   className="absolute"
-                  style={{ width: "18px", height: "18px", borderColor: "#4f7cff", borderStyle: "solid", ...pos }}
+                  style={{ width: "18px", height: "18px", borderColor: "var(--panel-bracket, #4f7cff)", borderStyle: "solid", ...pos }}
                 />
               ))}
 
@@ -135,7 +135,7 @@ export default function Contact() {
                 <h3 className="font-bold" style={{ fontSize: "24px", color: "#fafafa", letterSpacing: "-0.02em", marginBottom: "16px" }}>
                   Get in touch
                 </h3>
-                <p style={{ fontSize: "14px", lineHeight: 1.75, color: "#a1a1aa", maxWidth: "260px" }}>
+                <p style={{ fontSize: "14px", lineHeight: 1.75, color: "var(--panel-muted)", maxWidth: "260px" }}>
                   Have a project in mind or want to collaborate? I'd love to hear from you. Pick the channel that works best for you.
                 </p>
               </div>
@@ -148,7 +148,7 @@ export default function Contact() {
                     border: "1px solid rgba(255,255,255,0.1)",
                     borderRadius: "6px",
                     fontSize: "11px",
-                    color: "#a1a1aa",
+                    color: "var(--panel-muted)",
                     padding: "8px 14px",
                     gap: "8px",
                   }}
@@ -170,28 +170,28 @@ export default function Contact() {
                   className="group flex items-center transition-colors"
                   style={{
                     textDecoration: "none",
-                    background: "#fafafa",
-                    border: "1px solid #e4e4e7",
+                    background: "var(--bg)",
+                    border: "1px solid var(--border)",
                     borderRadius: "10px",
                     padding: "clamp(12px, 3vw, 16px) clamp(14px, 3vw, 18px)",
                     gap: "16px",
                   }}
                   onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#4f7cff"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#e4e4e7"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border)"; }}
                 >
                   <div
                     className="flex items-center justify-center flex-shrink-0"
-                    style={{ width: "clamp(36px, 8vw, 40px)", height: "clamp(36px, 8vw, 40px)", borderRadius: "8px", background: "#f4f4f5", color: "#52525b" }}
+                    style={{ width: "clamp(36px, 8vw, 40px)", height: "clamp(36px, 8vw, 40px)", borderRadius: "8px", background: "var(--surface-2)", color: "var(--text-4)" }}
                   >
                     {icon}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="font-mono" style={{ fontSize: "11px", color: "#a1a1aa", marginBottom: "3px" }}>{label}</div>
-                    <div className="font-semibold truncate" style={{ fontSize: "14px", color: "#0a0a0b" }}>{value}</div>
+                    <div className="font-mono" style={{ fontSize: "11px", color: "var(--text-3)", marginBottom: "3px" }}>{label}</div>
+                    <div className="font-semibold truncate" style={{ fontSize: "14px", color: "var(--text)" }}>{value}</div>
                   </div>
                   <div
                     className="hidden sm:flex items-center justify-center flex-shrink-0 transition-colors"
-                    style={{ width: "28px", height: "28px", color: "#d4d4d8" }}
+                    style={{ width: "28px", height: "28px", color: "var(--border-strong)" }}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M7 7h10v10" /><path d="M7 17 17 7" />

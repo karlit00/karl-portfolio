@@ -41,8 +41,8 @@ export default function Navbar() {
         className="group relative h-12 sm:h-14 backdrop-blur-xl overflow-hidden cursor-pointer transition-all duration-500 ease-in-out max-w-full"
         style={{
           width: expanded ? "min(780px, 92vw)" : "52px",
-          background: "rgba(250,250,250,0.9)",
-          border: "1px solid #e4e4e7",
+          background: "var(--nav-bg)",
+          border: "1px solid var(--border)",
           borderRadius: "10px",
         }}
       >
@@ -64,7 +64,7 @@ export default function Navbar() {
                 style={{
                   width: "8px",
                   height: "8px",
-                  borderColor: "#d4d4d8",
+                  borderColor: "var(--border-strong)",
                   borderStyle: "solid",
                   transition: "border-color 200ms ease",
                   ...pos,
@@ -100,18 +100,18 @@ export default function Navbar() {
                 style={{
                   fontSize: "13px",
                   fontWeight: isActive ? 600 : 400,
-                  color: isActive ? "#4f7cff" : "#71717a",
-                  background: isActive ? "#f4f4f5" : "transparent",
+                  color: isActive ? "#4f7cff" : "var(--text-2)",
+                  background: isActive ? "var(--surface-2)" : "transparent",
                   padding: "8px 18px",
                   borderRadius: "6px",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = "#4f7cff";
-                  e.currentTarget.style.background = "#f4f4f5";
+                  e.currentTarget.style.background = "var(--surface-2)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.color = isActive ? "#4f7cff" : "#71717a";
-                  e.currentTarget.style.background = isActive ? "#f4f4f5" : "transparent";
+                  e.currentTarget.style.color = isActive ? "#4f7cff" : "var(--text-2)";
+                  e.currentTarget.style.background = isActive ? "var(--surface-2)" : "transparent";
                 }}
               >
                 {link.name}

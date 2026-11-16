@@ -49,8 +49,8 @@ export default function Services() {
           <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
         </svg>
       ),
-      title: "API Integration",
-      desc: "Seamless integration of third-party APIs and services — payment gateways, maps, auth providers, and more.",
+      title: "API & AI Integration",
+      desc: "Seamless integration of third-party APIs and AI services — LLM-powered chatbots, payment gateways, maps, auth providers, and more.",
     },
     {
       icon: (
@@ -67,13 +67,13 @@ export default function Services() {
     <section
       id="services"
       className="relative overflow-hidden"
-      style={{ background: "#fafafa", padding: "112px 48px" }}
+      style={{ background: "var(--bg)", padding: "112px 48px" }}
     >
       {/* Dot-grid texture, consistent with the rest of the site */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, #e4e4e7 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, var(--border) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
           opacity: 0.6,
         }}
@@ -87,7 +87,7 @@ export default function Services() {
           style={{
             fontSize: "14px",
             letterSpacing: "0.08em",
-            color: "#a1a1aa",
+            color: "var(--text-3)",
             marginBottom: "24px",
           }}
         >
@@ -101,7 +101,7 @@ export default function Services() {
             fontSize: "clamp(30px, 4vw, 48px)",
             letterSpacing: "-0.03em",
             lineHeight: 1.1,
-            color: "#0a0a0b",
+            color: "var(--text)",
             marginBottom: "16px",
           }}
         >
@@ -112,7 +112,7 @@ export default function Services() {
         </h2>
 
         <p
-          style={{ fontSize: "15px", lineHeight: 1.75, color: "#71717a", maxWidth: "480px", marginBottom: "56px" }}
+          style={{ fontSize: "15px", lineHeight: 1.75, color: "var(--text-2)", maxWidth: "480px", marginBottom: "56px" }}
         >
           From idea to deployment — I cover the full spectrum of web and mobile development.
         </p>
@@ -127,8 +127,8 @@ export default function Services() {
               key={title}
               className="group relative flex flex-col transition-transform hover:-translate-y-1"
               style={{
-                background: "#ffffff",
-                border: "1px solid #e4e4e7",
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
                 borderRadius: "10px",
                 padding: "28px",
                 gap: "16px",
@@ -163,9 +163,9 @@ export default function Services() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  background: "#f4f4f5",
-                  border: "1px solid #e4e4e7",
-                  color: i === 0 ? "#4f7cff" : "#52525b",
+                  background: "var(--surface-2)",
+                  border: "1px solid var(--border)",
+                  color: i === 0 ? "#4f7cff" : "var(--text-4)",
                   flexShrink: 0,
                 }}
               >
@@ -176,11 +176,11 @@ export default function Services() {
               <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                 <h3
                   className="font-semibold"
-                  style={{ fontSize: "15px", color: "#0a0a0b", letterSpacing: "-0.01em" }}
+                  style={{ fontSize: "15px", color: "var(--text)", letterSpacing: "-0.01em" }}
                 >
                   {title}
                 </h3>
-                <p style={{ fontSize: "13px", lineHeight: 1.7, color: "#71717a" }}>
+                <p style={{ fontSize: "13px", lineHeight: 1.7, color: "var(--text-2)" }}>
                   {desc}
                 </p>
               </div>

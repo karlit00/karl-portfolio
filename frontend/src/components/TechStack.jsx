@@ -28,13 +28,13 @@ export default function TechStack() {
     <section
       id="techstack"
       className="relative overflow-hidden"
-      style={{ background: "#fafafa", padding: "112px 48px" }}
+      style={{ background: "var(--bg)", padding: "112px 48px" }}
     >
       {/* Dot-grid texture, consistent with Hero and About */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, #e4e4e7 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, var(--border) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
           opacity: 0.6,
         }}
@@ -48,7 +48,7 @@ export default function TechStack() {
           style={{
             fontSize: "14px",
             letterSpacing: "0.08em",
-            color: "#a1a1aa",
+            color: "var(--text-3)",
             marginBottom: "32px",
           }}
         >
@@ -65,8 +65,8 @@ export default function TechStack() {
               <div
                 className="relative w-full aspect-square flex items-center justify-center transition-transform group-hover:-translate-y-1"
                 style={{
-                  background: "#ffffff",
-                  border: "1px solid #e4e4e7",
+                  background: "var(--surface)",
+                  border: "1px solid var(--border)",
                   borderRadius: "10px",
                 }}
               >
@@ -94,12 +94,12 @@ export default function TechStack() {
                   src={icon}
                   alt={name}
                   className="w-10 h-10 object-contain"
-                  style={{ filter: name === "Express.js" || name === "Vercel" ? "invert(0.6)" : "none" }}
+                  style={{ filter: name === "Express.js" || name === "Vercel" ? "var(--icon-filter)" : "none" }}
                 />
               </div>
               <span
                 className="font-mono text-center leading-tight"
-                style={{ fontSize: "11px", color: "#a1a1aa" }}
+                style={{ fontSize: "11px", color: "var(--text-3)" }}
               >
                 {name}
               </span>
